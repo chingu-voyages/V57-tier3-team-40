@@ -36,6 +36,8 @@ coding!
 
 - Val Lysenko: [GitHub](https://github.com/Valeriusdev) / [LinkedIn](https://linkedin.com/in/valeriylysenko)
 - Rika Miyata: [GitHub](https://github.com/Tayrika) / [LinkedIn](https://www.linkedin.com/in/rika-miyata-4bab99243/)
+- Ruben Aguilar: [GitHub](https://github.com/rubenaguilardev) / [LinkedIn](https://www.linkedin.com/in/rubenaguilar-)
+- Mingshi Hui: [GitHub](https://github.com/mingshi0821) / [LinkedIn](https://www.linkedin.com/in/mingshi-hui)
 
    ...
 - Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
