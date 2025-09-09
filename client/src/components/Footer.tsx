@@ -24,6 +24,12 @@ const Footer = () => {
                     </div>
                 </div>
             ))}
+            <div className='flex justify-center items-center gap-4 text-white mt-4'>
+                <div className='text-5xl'>
+                    <a href="https://github.com/chingu-voyages/V57-tier3-team-40"><FaGithub/></a>
+                </div>
+                <p>Github Project Link - September 2025</p>
+            </div>
         </footer>
     )
 }

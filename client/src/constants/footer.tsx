@@ -54,3 +54,4 @@ export const members = [
         linkedin: "https://www.linkedin.com/in/rubenaguilar-"
     },
 ]
+
