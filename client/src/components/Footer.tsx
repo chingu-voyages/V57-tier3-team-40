@@ -1,4 +1,4 @@
-import { footLogo, waterMarkMobile, members, figmaLogo, neonLogo } from '../constants/footer'
+import { footLogo, members, figmaLogo, neonLogo } from '../constants/footer'
 import { FaGithub, FaLinkedin, FaDocker, FaReact, FaNodeJs } from 'react-icons/fa'
 import { SiTypescript, SiTailwindcss } from 'react-icons/si'
 
@@ -7,7 +7,8 @@ import { SiTypescript, SiTailwindcss } from 'react-icons/si'
 const Footer = () => {
     return (
         <footer
-            className='w-full flex flex-col bg-[#BFFFD1] text-[#104C35] px-4 py-12 md:py-20 bg-cover bg-[url]' 
+            className="w-full flex flex-col bg-[#BFFFD1] text-[#104C35] px-4 py-12 md:py-20 bg-cover 
+            bg-[url('/mobile-wm.png')] sm:bg-[url('/tablet-wm.png')] md:bg-[url('/desktop-wm.png')]" 
             
         >
             <div className="flex justify-center items-center gap-4 pb-6 md:pb-10">

@@ -1,11 +1,9 @@
 import footerLogo from '../assets/footer-logo.png'
-import wmMobile from '../assets/mobile-wm.png'
 import figmaIcon from '../assets/figma.svg'
 import neonIcon from '../assets/neon-logo.svg'
 
 
 export const footLogo = footerLogo
-export const waterMarkMobile = wmMobile
 export const figmaLogo = figmaIcon
 export const neonLogo = neonIcon
 
