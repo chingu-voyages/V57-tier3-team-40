@@ -1,13 +1,25 @@
-import footerLogo from '../assets/logo-footer.png'
+import footerLogo from '../assets/footer-logo.png'
 import wmMobile from '../assets/mobile-wm.png'
+import figmaIcon from '../assets/figma.svg'
+import neonIcon from '../assets/neon-logo.svg'
+
 
 export const footLogo = footerLogo
 export const waterMarkMobile = wmMobile
+export const figmaLogo = figmaIcon
+export const neonLogo = neonIcon
 
-export const members = [
+export interface Member {
+    name: string
+    role: string
+    github: string
+    linkedin: string
+}
+
+export const members: Member[] = [
     {
         name: "Valeriy Lysenko",
-        role: "Scrum Master",
+        role: "Scrum Master / Web Developer",
         github: "https://github.com/Valeriusdev",
         linkedin: "https://www.linkedin.com/in/valeriylysenko"
     },
@@ -24,7 +36,7 @@ export const members = [
         linkedin: "https://www.linkedin.com/in/rigo0101"
     },
     {
-        name: "Aigul Yermagambetova",
+        name: "Aigul Y",
         role: "Web Developer",
         github: "https://github.com/aigul-ermak",
         linkedin: "https://www.linkedin.com/in/aigul-ermak"

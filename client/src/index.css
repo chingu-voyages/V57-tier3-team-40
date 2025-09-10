@@ -4,3 +4,9 @@
 body {
     font-family: "Montserrat", sans-serif
 }
+
+/* Footer */
+
+.green-text:hover {
+    color: #08872b;
+}
