@@ -7,29 +7,27 @@ import { SiTypescript, SiTailwindcss } from 'react-icons/si'
 const Footer = () => {
     return (
         <footer
-            className="w-full flex flex-col bg-[#BFFFD1] text-[#104C35] px-4 py-12 md:py-20 bg-cover 
-            bg-[url('/mobile-wm.png')] sm:bg-[url('/tablet-wm.png')] md:bg-[url('/desktop-wm.png')]" 
-            
-        >
-            <div className="flex justify-center items-center gap-4 pb-6 md:pb-10">
-                <img src={footLogo} className="h-15 w-auto" />
-                <span className='font-bold text-[1.5rem]'>Little Paws</span>
+            className="w-full flex flex-col bg-[#BFFFD1] text-[#104C35] px-4 py-12 md:py-20 bg-cover bg-top
+            bg-[url('/mobile-wm.png')] sm:bg-[url('/tablet-wm.png')] md:bg-[url('/desktop-wm.png')]">
+            <div className="flex justify-center items-center gap-4 mb-6 md:mb-10">
+                <img src={footLogo} className="h-18 md:h-22 w-auto" />
             </div>
-            <div className='sm:flex flex-1 flex-wrap justify-between pb-6'>
+            <div className='sm:flex flex-1 flex-wrap justify-between lg:justify-center'>
                 {members.map(member => (
-                    <div className='group flex justify-between items-center sm:w-[49%] border border-[#104C35]/60 py-3 px-5 rounded-xl mb-4 hover:bg-[#5FED83]/15 hover:border-[#5FED83]'>
-                        <div className='flex flex-col'>
-                            <span className='font-bold group-hover:text-[#08872B]'>{member.name}</span>
-                            <span className='text-sm font-semibold pr-7 md:pr-4'>{member.role}</span>
+                    <div className='group lg:max-w-140 flex sm:flex-col lg:flex-row justify-between items-center sm:items-start border border-[#104C35]/60 
+                    py-3 lg:py-6 px-5 mb-4 rounded-xl hover:bg-[#5FED83]/15 hover:border-[#5FED83]'>
+                        <div className='flex flex-col mb-3 md:pb-0'>
+                            <span className='md:text-lg font-bold group-hover:text-[#08872B]'>{member.name}</span>
+                            <span className='text-sm md:text-base font-semibold'>{member.role}</span>
                         </div>
-                        <div className='flex text-4xl gap-3 sm:pt-10 md:pt-7 lg:pt-0'>
+                        <div className='flex text-4xl sm:self-end lg:self-center gap-3'>
                             <a href={member.linkedin}><FaLinkedin className='text-[#0A66C2] hover:scale-120 transition-all duration-300'/></a>
                             <a href={member.github}><FaGithub className='text-black hover:scale-120 transition-all duration-300'/></a>
                         </div>
                     </div>
                 ))}
             </div>
-            <div className='group flex justify-center mt-4 mb-6'>
+            <div className='group flex justify-center mb-6'>
                 <a href="https://github.com/chingu-voyages/V57-tier3-team-40" className='flex items-center gap-4'>
                     <div className='text-5xl'>
                         <FaGithub className='text-black hover:scale-120 transition-all duration-300'/>
