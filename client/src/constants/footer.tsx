@@ -1,4 +1,4 @@
-import footerLogo from '../assets/footer-logo.png'
+import footerLogo from '../assets/footerLogo.png'
 import figmaIcon from '../assets/figma.svg'
 import neonIcon from '../assets/neon-logo.svg'
 
@@ -41,7 +41,7 @@ export const members: Member[] = [
     },
     {
         name: "Mingshi Hui",
-        role: "UX Designer",
+        role: "UX / UI Designer",
         github: "https://github.com/mingshi0821",
         linkedin: "https://www.linkedin.com/in/mingshi-hui"
     },
