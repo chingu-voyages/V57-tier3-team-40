@@ -12,7 +12,7 @@ const Footer = () => {
             <div className="flex justify-center items-center gap-4 mb-6 md:mb-10">
                 <img src={footLogo} className="h-18 md:h-22 w-auto" />
             </div>
-            <div className='container grid sm:grid-cols-2 mx-auto gap-4 mb-6 xl:px-16'>
+            <div className='container grid sm:grid-cols-2 mx-auto gap-4 mb-6 md:mb-10 xl:px-16'>
                 {members.map(member => (
                     <div className='group flex sm:flex-col lg:flex-row justify-between items-center sm:items-start border border-[#104C35]/60 
                     py-4 px-4 rounded-xl hover:bg-[#5FED83]/15 hover:border-[#5FED83]'>
@@ -27,35 +27,34 @@ const Footer = () => {
                     </div>
                 ))}
             </div>
-            <div className='container mx-auto'>
+            <div className='container mx-auto lg:grid lg:grid-cols-2'>
                 <a 
                     href="https://github.com/chingu-voyages/V57-tier3-team-40" 
-                    className='flex justify-center items-center gap-4'
-                    rel="noopener noreferrer"
+                    className='group flex justify-center items-center gap-4'
                 >
-                    <div className='group flex items-center mb-6 gap-4'>
+                    <div className='flex items-center mb-6 gap-4'>
                         <FaGithub className='text-5xl text-black hover:scale-120 transition-all duration-300'/>
-                        <p className='group-hover:text-[#08872B]'>Github Project Link - September 2025</p>
+                        <p className='md:text-lg group-hover:text-[#08872B]'>Github Project Link - September 2025</p>
                     </div> 
                 </a>
             
-            <div className='flex flex-col mb-8 items-center'>
-                <div>
-                    <span className='text-sm font-bold'>Technologies</span>
+                <div className='flex flex-col mb-6 md:mb-10 items-center'>
+                    <div>
+                        <span className='text-sm md:text-base font-bold'>Technologies</span>
+                    </div>
+                    <div className='flex items-center gap-4'>
+                        <SiTypescript className='text-5xl text-[#007ACC]'/> 
+                        <FaReact className='text-[#61DAFB] text-6xl'/> 
+                        <SiTailwindcss className='text-6xl text-[#2298BD]'/> 
+                        <img src={figmaLogo} alt="figma logo" className='h-[3rem] w-auto'/>
+                        <FaNodeJs className='text-6xl text-[#83CD29]'/> 
+                        <img src={neonLogo} alt="neon logo" className='h-[3rem] w-auto'/>
+                        <FaDocker className='text-6xl text-[#0288D1]'/> 
+                    </div>
                 </div>
-                <div className='flex items-center gap-4'>
-                     <SiTypescript className='text-5xl text-[#007ACC]'/> 
-                    <FaReact className='text-[#61DAFB] text-6xl'/> 
-                    <SiTailwindcss className='text-6xl text-[#2298BD]'/> 
-                    <img src={figmaLogo} alt="figma logo" className='h-[3rem] w-auto'/>
-                    <FaNodeJs className='text-6xl text-[#83CD29]'/> 
-                    <img src={neonLogo} alt="neon logo" className='h-[3rem] w-auto'/>
-                    <FaDocker className='text-6xl text-[#0288D1]'/> 
-                </div>
-               </div>
-               <div className='text-xs text-center'>
-                <p>Disclaimer: This website and its associated services are provided for demonstrative and educational purposes only.</p>
             </div>
+            <div className='text-xs text-center'>
+                <p>Disclaimer: This website and its associated services are provided for demonstrative and educational purposes only.</p>
             </div>
             
         </footer>
