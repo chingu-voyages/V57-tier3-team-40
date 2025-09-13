@@ -7,7 +7,7 @@ export const footLogo = footerLogo
 export const figmaLogo = figmaIcon
 export const neonLogo = neonIcon
 
-export interface Member {
+export type Member = {
     name: string
     role: string
     github: string
