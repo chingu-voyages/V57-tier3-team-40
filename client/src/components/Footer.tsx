@@ -12,11 +12,11 @@ const Footer = () => {
             <div className="flex justify-center items-center gap-4 mb-6 md:mb-10">
                 <img src={footLogo} className="h-18 md:h-22 w-auto" />
             </div>
-            <div className='container grid sm:grid-cols-2 mx-auto gap-4 mb-6'>
+            <div className='container grid sm:grid-cols-2 mx-auto gap-4 mb-6 xl:px-16'>
                 {members.map(member => (
-                    <div className='group lg:max-w-200 flex sm:flex-col lg:flex-row justify-between items-center sm:items-start border border-[#104C35]/60 
-                    py-3 lg:py-6 px-5 lg:px-6 rounded-xl hover:bg-[#5FED83]/15 hover:border-[#5FED83]'>
-                        <div className='flex flex-col mb-3 md:pb-0'>
+                    <div className='group flex sm:flex-col lg:flex-row justify-between items-center sm:items-start border border-[#104C35]/60 
+                    py-4 px-4 rounded-xl hover:bg-[#5FED83]/15 hover:border-[#5FED83]'>
+                        <div className='flex flex-col sm:mb-4 lg:mb-0'>
                             <span className='md:text-lg font-bold group-hover:text-[#08872B]'>{member.name}</span>
                             <span className='text-sm md:text-base font-semibold'>{member.role}</span>
                         </div>
