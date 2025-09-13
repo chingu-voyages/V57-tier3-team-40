@@ -12,10 +12,10 @@ const Footer = () => {
             <div className="flex justify-center items-center gap-4 mb-6 md:mb-10">
                 <img src={footLogo} className="h-18 md:h-22 w-auto" />
             </div>
-            <div className='sm:flex flex-1 flex-wrap justify-between lg:justify-center'>
+            <div className='container grid sm:grid-cols-2 mx-auto gap-4 mb-6'>
                 {members.map(member => (
-                    <div className='group lg:max-w-140 flex sm:flex-col lg:flex-row justify-between items-center sm:items-start border border-[#104C35]/60 
-                    py-3 lg:py-6 px-5 mb-4 rounded-xl hover:bg-[#5FED83]/15 hover:border-[#5FED83]'>
+                    <div className='group lg:max-w-200 flex sm:flex-col lg:flex-row justify-between items-center sm:items-start border border-[#104C35]/60 
+                    py-3 lg:py-6 px-5 lg:px-6 rounded-xl hover:bg-[#5FED83]/15 hover:border-[#5FED83]'>
                         <div className='flex flex-col mb-3 md:pb-0'>
                             <span className='md:text-lg font-bold group-hover:text-[#08872B]'>{member.name}</span>
                             <span className='text-sm md:text-base font-semibold'>{member.role}</span>
@@ -27,14 +27,18 @@ const Footer = () => {
                     </div>
                 ))}
             </div>
-            <div className='group flex justify-center mb-6'>
-                <a href="https://github.com/chingu-voyages/V57-tier3-team-40" className='flex items-center gap-4'>
-                    <div className='text-5xl'>
-                        <FaGithub className='text-black hover:scale-120 transition-all duration-300'/>
-                    </div>
-                    <p className='group-hover:text-[#08872B]'>Github Project Link - September 2025</p>
+            <div className='container mx-auto'>
+                <a 
+                    href="https://github.com/chingu-voyages/V57-tier3-team-40" 
+                    className='flex justify-center items-center gap-4'
+                    rel="noopener noreferrer"
+                >
+                    <div className='group flex items-center mb-6 gap-4'>
+                        <FaGithub className='text-5xl text-black hover:scale-120 transition-all duration-300'/>
+                        <p className='group-hover:text-[#08872B]'>Github Project Link - September 2025</p>
+                    </div> 
                 </a>
-            </div>
+            
             <div className='flex flex-col mb-8 items-center'>
                 <div>
                     <span className='text-sm font-bold'>Technologies</span>
@@ -48,11 +52,12 @@ const Footer = () => {
                     <img src={neonLogo} alt="neon logo" className='h-[3rem] w-auto'/>
                     <FaDocker className='text-6xl text-[#0288D1]'/> 
                 </div>
-               
-            </div>
-            <div className='text-xs text-center'>
+               </div>
+               <div className='text-xs text-center'>
                 <p>Disclaimer: This website and its associated services are provided for demonstrative and educational purposes only.</p>
             </div>
+            </div>
+            
         </footer>
     )
 }
