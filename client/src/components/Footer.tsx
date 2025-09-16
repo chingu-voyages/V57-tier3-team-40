@@ -18,8 +18,8 @@ const Footer = () => {
                     <div
                         key={index} 
                         className='group flex sm:flex-col lg:flex-row justify-between items-center sm:items-start border border-[#104C35]/60 
-                        py-3 lg:py-6 px-5 rounded-xl hover:bg-[#5FED83]/15 hover:border-[#5FED83]'>
-                            <div className='flex flex-col mb-3 md:pb-0'>
+                        py-5 px-5 rounded-xl hover:bg-[#5FED83]/15 hover:border-[#5FED83]'>
+                            <div className='flex flex-col sm:mb-3 lg:mb-0'>
                                 <span className='md:text-lg font-bold group-hover:text-[#08872B]'>{member.name}</span>
                                 <span className='text-sm md:text-base font-semibold'>{member.role}</span>
                             </div>
@@ -54,7 +54,6 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            
             <div className='text-xs text-center'>
                 <p>Disclaimer: This website and its associated services are provided for demonstrative and educational purposes only.</p>
             </div>
