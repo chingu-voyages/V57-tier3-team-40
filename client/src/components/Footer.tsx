@@ -5,6 +5,7 @@ import { SiTypescript, SiTailwindcss } from 'react-icons/si'
 
 
 const Footer = () => {
+    
     return (
         <footer
             className="w-full flex flex-col bg-[#BFFFD1] text-[#104C35] px-4 py-12 md:py-20 bg-cover bg-top
@@ -13,7 +14,7 @@ const Footer = () => {
                 <img src={footLogo} className="h-18 md:h-22 w-auto" />
             </div>
             <div className='container grid sm:grid-cols-2 mx-auto gap-4 mb-6 md:mb-10 xl:px-16'>
-                {members.map(member => (
+                {members.map((member, index) => (
                     <div className='group flex sm:flex-col lg:flex-row justify-between items-center sm:items-start border border-[#104C35]/60 
                     py-4 px-4 rounded-xl hover:bg-[#5FED83]/15 hover:border-[#5FED83]'>
                         <div className='flex flex-col sm:mb-4 lg:mb-0'>
