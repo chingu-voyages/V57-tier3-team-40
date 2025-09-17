@@ -40,6 +40,7 @@ coding!
 - Mingshi Hui: [GitHub](https://github.com/mingshi0821) / [LinkedIn](https://www.linkedin.com/in/mingshi-hui)
 - Alyssia Tavares: [GitHub](https://github.com/alyssiatavares) / [LinkedIn](https://www.linkedin.com/in/alyssia-tavares/)
 - Ekaterina Kushnir: [GitHub](https://github.com/katiaku) / [LinkedIn](https://www.linkedin.com/in/ekaterina-kushnir-mikhaylova/)
+- Aigul Yermagambetova: [GitHub](https://github.com/aigul-ermak) / [LinkedIn](https://www.linkedin.com/in/aigul-ermak/)
 
    ...
 - Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
