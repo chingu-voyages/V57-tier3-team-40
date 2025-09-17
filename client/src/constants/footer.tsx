@@ -27,14 +27,9 @@ export const members: Member[] = [
         github: "https://github.com/katiaku",
         linkedin: "https://www.linkedin.com/in/ekaterina-kushnir-mikhaylova"
     },
+    
     {
-        name: "Rigo L",
-        role: "Web Developer",
-        github: "https://github.com/r1g023",
-        linkedin: "https://www.linkedin.com/in/rigo0101"
-    },
-    {
-        name: "Aigul Y",
+        name: "Aigul Yermagambetova",
         role: "Web Developer",
         github: "https://github.com/aigul-ermak",
         linkedin: "https://www.linkedin.com/in/aigul-ermak"
@@ -44,6 +39,12 @@ export const members: Member[] = [
         role: "UX / UI Designer",
         github: "https://github.com/mingshi0821",
         linkedin: "https://www.linkedin.com/in/mingshi-hui"
+    },
+    {
+        name: "Rigo L",
+        role: "Web Developer",
+        github: "https://github.com/r1g023",
+        linkedin: "https://www.linkedin.com/in/rigo0101"
     },
     {
         name: "Rika Miyata",
