@@ -31,15 +31,13 @@ const Footer = () => {
                 ))}
             </div>
             <div className='container mx-auto grid lg:grid-cols-2 lg:items-center gap-4 xl:px-20'>
-                <div className='group flex justify-center lg:justify-start mb-6'>
+                <div className='group flex justify-center lg:justify-start mb-6 lg:mb-0'>
                     <a href="https://github.com/chingu-voyages/V57-tier3-team-40" className='flex items-center gap-4'>
-                        <div className='text-5xl lg:text-6xl'>
-                            <FaGithub className='text-black hover:scale-120 transition-all duration-300'/>
-                        </div>
+                        <FaGithub className='text-5xl lg:text-6xl text-black hover:scale-120 transition-all duration-300'/>
                         <p className='group-hover:text-[#08872B] lg:text-lg'>Github Project Link - September 2025</p>
                     </a>
                 </div>
-                <div className='flex flex-col mb-10 items-center lg:items-start lg:justify-start gap-1'>
+                <div className='flex flex-col mb-10 items-center lg:items-start gap-1'>
                     <div>
                         <span className='text-sm lg:text-lg font-bold'>Technologies</span>
                     </div>
