@@ -1,0 +1,1 @@
+export { UserMapper } from './userMapper';
