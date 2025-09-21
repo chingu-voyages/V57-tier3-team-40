@@ -40,6 +40,24 @@ export const animalController = {
     }
   },
 
+  async updateAnimal(req: Request, res: Response): Promise<void> {
+    try {
+      const { id } = req.params;
+      const animalData = req.body;
+      const animal = await animalService.updateAnimal(id, animalData);
+
+      if (!animal) {
+        res.status(404).json({ error: "Animal not found" });
+        return;
+      }
+
+      res.json(animal);
+    } catch (error) {
+      console.error("Error updating animal:", error);
+      res.status(500).json({ error: "Internal server error" });
+    }
+  },
+
   async deleteAnimal(req: Request, res: Response): Promise<void> {
     try {
       const { id } = req.params;

@@ -36,6 +36,33 @@ export const animalService = {
     return AnimalMapper.prismaToPublic(animal);
   },
 
+  async updateAnimal(
+    id: string,
+    animalData: Partial<CreateAnimalDto>
+  ): Promise<AnimalPublic | null> {
+    try {
+      const animal = await prisma.animal.update({
+        where: { id },
+        data: {
+          name: animalData.name,
+          breed: animalData.breed,
+          gender: animalData.gender,
+          age: animalData.age,
+          city: animalData.city,
+          state: animalData.state,
+          house_trained: animalData.houseTrained,
+          health: animalData.health,
+          good_with: animalData.goodWith,
+          image: animalData.image,
+          meet_puppy: animalData.meetPuppy,
+        },
+      });
+      return AnimalMapper.prismaToPublic(animal);
+    } catch (error) {
+      return null;
+    }
+  },
+
   async deleteAnimal(id: string): Promise<boolean> {
     try {
       await prisma.animal.delete({
