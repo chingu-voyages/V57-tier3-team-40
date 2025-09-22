@@ -5,21 +5,23 @@ import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
 
 const Header: FC = () => {
   return (
-    <header className="flex justify-between items-center text-black px-12 py-8 border border-dashed">
+    <header className="max-w-[1440px] w-full mx-auto flex justify-between items-center text-black px-12 py-8 border border-dashed">
       <div>
-        <img 
-          src={headerLogo} 
-          alt="Little Paws logo"
-          className="w-[295px]"
-        />
+        <NavLink to='/'>
+          <img 
+            src={headerLogo} 
+            alt="Little Paws logo"
+            className="w-[295px]"
+          />
+        </NavLink>
       </div>
       <div>
-        <nav className="flex justify-center space-x-17">
+        <nav className="flex justify-center space-x-13">
           {navInfo.map(link => (
             <NavLink
               to={link.to}
               className={({ isActive }: { isActive: boolean }) =>
-                `text-xl font-medium hover:text-[#08872B]/60 transition-colors ${
+                `text-lg font-medium hover:text-[#08872B]/60 transition-colors ${
                   isActive ? "text-[#08872B]" : "text-[#2D3142]"
                 }`
               }
