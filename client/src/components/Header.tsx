@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Header: FC = () => {
   return (
-    <header className="w-full h-[70vh] bg-gray-800 text-white flex flex-col items-center justify-center">
+    <header className="w-full h-[40vh] bg-gray-800 text-white flex flex-col items-center justify-center">
       <div className="w-full">
         <h1 className="text-5xl text-center mb-8">The Animal Shelter App</h1>
         <nav className="flex justify-center space-x-8">
