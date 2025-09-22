@@ -1,12 +1,8 @@
-import Footer from "./components/Footer"
+import type { FC } from "react";
+import HomeLayout from "./layout/HomeLayout";
 
-const App = () => {
-  return (
-    <main>
-      <div className="text-4xl">Hello Team</div>
-      <Footer/>
-    </main>
-  )
-}
+const App: FC = () => {
+  return <HomeLayout />;
+};
 
-export default App
+export default App;
