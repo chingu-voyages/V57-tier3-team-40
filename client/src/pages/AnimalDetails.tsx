@@ -4,7 +4,7 @@ import Component1 from "../components/Component1.tsx";
 import Component2 from "../components/Component2.tsx";
 import Footer from "../components/Footer.tsx";
 
-const HomeLayout: FC = () => {
+const AnimalDetails: FC = () => {
   return (
     <div className="flex flex-col w-full">
       <section className="h-[70vh] w-full">
@@ -27,4 +27,4 @@ const HomeLayout: FC = () => {
   );
 };
 
-export default HomeLayout;
+export default AnimalDetails;
