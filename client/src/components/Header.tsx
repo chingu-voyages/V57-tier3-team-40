@@ -1,59 +1,36 @@
 import type { FC } from "react";
 import { NavLink } from "react-router-dom";
-import logo  from "../assets/header/logo.png"
+import { navInfo, headerLogo } from "../constants/header"
+import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
 
 const Header: FC = () => {
   return (
-    <header className="flex justify-between items-center text-black px-12 py-9 border border-dashed">
+    <header className="flex justify-between items-center text-black px-12 py-8 border border-dashed">
       <div>
         <img 
-          src={logo} 
+          src={headerLogo} 
           alt="Little Paws logo"
           className="w-[295px]"
         />
       </div>
       <div>
-        <nav className="flex justify-center space-x-8">
-          <NavLink
-            to="/"
-            className={({ isActive }: { isActive: boolean }) =>
-              `text-lg hover:text-blue-300 transition-colors ${
-                isActive ? "text-blue-400 font-semibold" : "text-green"
-              }`
-            }
-          >
-            Home
+        <nav className="flex justify-center space-x-17">
+          {navInfo.map(link => (
+            <NavLink
+              to={link.to}
+              className={({ isActive }: { isActive: boolean }) =>
+                `text-xl font-medium hover:text-[#08872B]/60 transition-colors ${
+                  isActive ? "text-[#08872B]" : "text-[#2D3142]"
+                }`
+              }
+            >
+            <div className="flex items-center gap-2">
+              {link.title}
+              {(link.title === 'Dogs' || link.title === 'Cats') && <FaAngleDown />}
+            </div>
+            
           </NavLink>
-          <NavLink
-            to="/animals"
-            className={({ isActive }: { isActive: boolean }) =>
-              `text-lg hover:text-blue-300 transition-colors ${
-                isActive ? "text-blue-400 font-semibold" : "text-green"
-              }`
-            }
-          >
-            Dogs
-          </NavLink>
-          <NavLink
-            to="/adopt-vs-foster"
-            className={({ isActive }: { isActive: boolean }) =>
-              `text-lg hover:text-blue-300 transition-colors ${
-                isActive ? "text-blue-400 font-semibold" : "text-green"
-              }`
-            }
-          >
-            Cats
-          </NavLink>
-          <NavLink
-            to="/adopt-vs-foster"
-            className={({ isActive }: { isActive: boolean }) =>
-              `text-lg hover:text-blue-300 transition-colors ${
-                isActive ? "text-blue-400 font-semibold" : "text-green"
-              }`
-            }
-          >
-            Adopt vs Foster
-          </NavLink>
+          ))}
         </nav>
       </div>
     </header>
