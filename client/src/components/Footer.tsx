@@ -41,7 +41,7 @@ const Footer = () => {
                     <div>
                         <span className='text-sm lg:text-lg font-bold'>Technologies</span>
                     </div>
-                    <div className='flex items-center gap-4'>
+                    <div className='flex items-center gap-4 flex-wrap justify-center lg:flex-nowrap'>
                         <SiTypescript className='text-5xl lg:text-6xl text-[#007ACC]'/> 
                         <FaReact className='text-[#61DAFB] text-6xl lg:text-7xl'/> 
                         <SiTailwindcss className='text-6xl lg:text-7xl text-[#2298BD]'/> 
