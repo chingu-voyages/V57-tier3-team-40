@@ -1,5 +1,5 @@
-import type { FC } from "react";
-import { NavLink } from "react-router-dom";
+import type { FC } from "react"
+import { NavLink } from "react-router-dom"
 import { navInfo, headerLogo } from "../constants/header"
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
 
@@ -11,7 +11,7 @@ const Header: FC = () => {
           <img 
             src={headerLogo} 
             alt="Little Paws logo"
-            className="w-[295px]"
+            className="w-[240px]"
           />
         </NavLink>
       </div>
@@ -21,7 +21,7 @@ const Header: FC = () => {
             <NavLink
               to={link.to}
               className={({ isActive }: { isActive: boolean }) =>
-                `text-lg font-medium hover:text-[#08872B]/60 transition-colors ${
+                `font-medium hover:text-[#08872B]/60 transition-colors ${
                   isActive ? "text-[#08872B]" : "text-[#2D3142]"
                 }`
               }
@@ -36,7 +36,7 @@ const Header: FC = () => {
         </nav>
       </div>
     </header>
-  );
-};
+  )
+}
 
 export default Header;
