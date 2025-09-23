@@ -1,7 +1,5 @@
 import type { FC } from "react";
 import { useQuery } from "@tanstack/react-query";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import AnimalCard from "../components/AnimalCard";
 import { animalApi } from "../services/animalApi";
 
@@ -64,10 +62,6 @@ const Animals: FC = () => {
           )}
         </div>
       </main>
-
-      <div className="w-full h-[40vh]">
-        <Footer />
-      </div>
     </div>
   );
 };
