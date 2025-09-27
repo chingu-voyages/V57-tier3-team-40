@@ -19,14 +19,14 @@ const Footer = () => {
                         key={index} 
                         className='group flex sm:flex-col lg:flex-row justify-between items-center sm:items-start border border-[#104C35]/60 
                         py-5 px-5 rounded-xl hover:bg-[#5FED83]/15 hover:border-[#5FED83]'>
-                            <div className='flex flex-col sm:mb-3 lg:mb-0'>
-                                <span className='md:text-lg font-bold group-hover:text-[#08872B]'>{member.name}</span>
-                                <span className='text-sm md:text-base font-semibold'>{member.role}</span>
-                            </div>
-                            <div className='flex text-4xl sm:self-end lg:self-center gap-3'>
-                                <a href={member.linkedin}><FaLinkedin className='text-[#0A66C2] hover:scale-120 transition-all duration-300'/></a>
-                                <a href={member.github}><FaGithub className='text-black hover:scale-120 transition-all duration-300'/></a>
-                            </div>
+                        <div className='flex flex-col sm:mb-3 lg:mb-0'>
+                            <span className='md:text-lg font-bold group-hover:text-[#08872B]'>{member.name}</span>
+                            <span className='text-sm md:text-base font-semibold'>{member.role}</span>
+                        </div>
+                        <div className='flex text-4xl sm:self-end lg:self-center gap-3'>
+                            <a href={member.linkedin}><FaLinkedin className='text-[#0A66C2] hover:scale-120 transition-all duration-300'/></a>
+                            <a href={member.github}><FaGithub className='text-black hover:scale-120 transition-all duration-300'/></a>
+                        </div>
                     </div>
                 ))}
             </div>

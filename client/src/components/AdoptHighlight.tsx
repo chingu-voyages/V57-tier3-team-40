@@ -4,7 +4,7 @@ const AdoptHighlight = () => {
     return (
         <section className="max-w-[1440px] mx-auto lg:flex lg:flex-row-reverse items-center mb-23 lg:mb-38 xl:mb-50">
             <div className="px-6 mb-10 lg:mb-0 lg:w-[48%] lg:px-20 xl:px-28">
-                <h2 className="text-3xl lg:text-4xl xl:text-5xl text-[#104C35] font-semibold xl:font-medium text-center 
+                <h2 className="text-3xl lg:text-4xl xl:text-5xl text-[#104C35] font-semibold lg:font-medium text-center 
                 lg:text-left mb-5 xl:mb-8">
                     Adopt a pet,<br/>don't shop.
                 </h2>
