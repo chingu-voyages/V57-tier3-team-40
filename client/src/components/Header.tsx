@@ -1,46 +1,45 @@
-import type { FC } from "react";
-import { NavLink } from "react-router-dom";
+import type { FC } from "react"
+import { NavLink } from "react-router-dom"
+import { navInfo, headerLogo } from "../constants/header"
+import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
 
 const Header: FC = () => {
   return (
-    <header className="w-full h-[40vh] bg-gray-800 text-white flex flex-col items-center justify-center">
-      <div className="w-full">
-        <h1 className="text-5xl text-center mb-8">The Animal Shelter App</h1>
-        <nav className="flex justify-center space-x-8">
-          <NavLink
-            to="/"
-            className={({ isActive }: { isActive: boolean }) =>
-              `text-lg hover:text-blue-300 transition-colors ${
-                isActive ? "text-blue-400 font-semibold" : "text-white"
-              }`
-            }
-          >
-            Home
+    <header className="bg-white">
+      <div className="max-w-[1440px] w-full mx-auto flex justify-between items-center text-black px-12 py-6">
+        <div>
+          <NavLink to='/'>
+            <img 
+              src={headerLogo} 
+              alt="Little Paws logo"
+              className="w-[240px]"
+            />
           </NavLink>
-          <NavLink
-            to="/animals"
-            className={({ isActive }: { isActive: boolean }) =>
-              `text-lg hover:text-blue-300 transition-colors ${
-                isActive ? "text-blue-400 font-semibold" : "text-white"
-              }`
-            }
-          >
-            Animals
-          </NavLink>
-          <NavLink
-            to="/adopt-vs-foster"
-            className={({ isActive }: { isActive: boolean }) =>
-              `text-lg hover:text-blue-300 transition-colors ${
-                isActive ? "text-blue-400 font-semibold" : "text-white"
-              }`
-            }
-          >
-            Adopt vs Foster
-          </NavLink>
-        </nav>
+        </div>
+        <div>
+          <nav className="flex justify-center space-x-13">
+            {navInfo.map((link, index)=> (
+              <NavLink
+                key={index}
+                to={link.to}
+                className={({ isActive }: { isActive: boolean }) =>
+                  `text-lg font-medium hover:text-[#08872B]/60 transition-colors ${
+                    isActive ? "text-[#08872B]" : "text-[#2D3142]"
+                  }`
+                }
+              >
+              <div className="flex items-center gap-2">
+                {link.title}
+                {(link.title === 'Dogs' || link.title === 'Cats') && <FaAngleDown />}
+              </div>
+              
+            </NavLink>
+            ))}
+          </nav>
+        </div>
       </div>
     </header>
-  );
-};
+  )
+}
 
 export default Header;

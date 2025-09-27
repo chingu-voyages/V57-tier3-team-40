@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 
 const Layout: FC = () => {
     return (
-        <div className="w-full flex flex-col">
+        <div className="mx-auto w-full flex flex-col bg-[#FDF6EC]">
             <Header />
             <main>
                 <Outlet />
