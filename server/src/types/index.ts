@@ -5,6 +5,7 @@ export { Gender } from "./enums/gender.enum";
 export { User, UserPublic, UserSession } from "./types/user.types";
 
 export { AnimalPublic } from "./types/animal.types";
+export { VaccinationPublic } from "./types/vaccination.types";
 
 export {
   UserCreateDTO,
@@ -16,3 +17,8 @@ export {
 } from "./dto/user.dto";
 
 export { CreateAnimalDto, UpdateAnimalDto } from "./dto/animal.dto";
+
+export {
+  CreateVaccinationDto,
+  UpdateVaccinationDto,
+} from "./dto/vaccination.dto";
