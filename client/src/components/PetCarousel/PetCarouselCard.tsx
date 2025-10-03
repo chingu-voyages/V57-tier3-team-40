@@ -21,7 +21,11 @@ export const PetCarouselCard: React.FC<PetCarouselCardProps> = ({
                 <img
                     src={genderMaleIcon}
                     alt="Male"
-                    className="w-5 h-5"
+                    style={{
+                        width: '31px',
+                        height: '30px',
+                        opacity: 1
+                    }}
                 />
             );
         }
@@ -29,7 +33,11 @@ export const PetCarouselCard: React.FC<PetCarouselCardProps> = ({
             <img
                 src={genderFemaleIcon}
                 alt="Female"
-                className="w-5 h-5"
+                style={{
+                    width: '22px',
+                    height: '31px',
+                    opacity: 1
+                }}
             />
         );
     };
