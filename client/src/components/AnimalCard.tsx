@@ -15,7 +15,7 @@ const AnimalCard: FC<AnimalCardProps> = ({ animal }) => {
 
   return (
     <div 
-      className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer transform hover:scale-105"
+      className="bg-white rounded-lg shadow-md overflow-hidden hover:drop-shadow-2xl transition-all duration-200 cursor-pointer transform hover:scale-100"
       onClick={handleClick}
     >
       {animal.image && (
