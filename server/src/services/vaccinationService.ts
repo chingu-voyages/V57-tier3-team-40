@@ -7,8 +7,9 @@ import {
 } from "../types";
 
 export const vaccinationService = {
-  async getAllVaccinations(): Promise<VaccinationPublic[]> {
+  async getAllVaccinations(animal_id: string): Promise<VaccinationPublic[]> {
     const vaccs = await prisma.vaccination.findMany({
+      where: { animal_id },
       orderBy: { created_at: "desc" },
     });
     return vaccs.map((v: any) => VaccinationMapper.prismaToPublic(v));
@@ -23,20 +24,12 @@ export const vaccinationService = {
     data: CreateVaccinationDto
   ): Promise<VaccinationPublic> {
     const animal = await prisma.animal.findUnique({
-      where: { id: data.animalId },
+      where: { id: data.animal_id },
     });
     if (!animal) throw new Error("Animal not found");
 
     const created = await prisma.vaccination.create({
-      data: {
-        vaccine_name: data.vaccineName,
-        vaccination_date: new Date(data.vaccinationDate),
-        expiration_date: data.expirationDate
-          ? new Date(data.expirationDate)
-          : undefined,
-        batch_number: data.batchNumber,
-        animal_id: data.animalId,
-      },
+      data,
     });
 
     return VaccinationMapper.prismaToPublic(created);
@@ -46,35 +39,31 @@ export const vaccinationService = {
     id: string,
     data: UpdateVaccinationDto
   ): Promise<VaccinationPublic | null> {
-    try {
-      const updateData: any = {};
-      if (data.vaccineName !== undefined)
-        updateData.vaccine_name = data.vaccineName;
-      if (data.vaccinationDate !== undefined)
-        updateData.vaccination_date = new Date(data.vaccinationDate);
-      if (data.expirationDate !== undefined)
-        updateData.expiration_date = data.expirationDate
-          ? new Date(data.expirationDate)
-          : null;
-      if (data.batchNumber !== undefined)
-        updateData.batch_number = data.batchNumber;
-      if (data.animalId !== undefined) {
-        const animal = await prisma.animal.findUnique({
-          where: { id: data.animalId },
-        });
-        if (!animal) throw new Error("Animal not found");
-        updateData.animal_id = data.animalId;
-      }
-
-      const updated = await prisma.vaccination.update({
-        where: { id },
-        data: updateData,
+    const updateData: any = {};
+    if (data.vaccine_name !== undefined)
+      updateData.vaccine_name = data.vaccine_name;
+    if (data.vaccination_date !== undefined)
+      updateData.vaccination_date = new Date(data.vaccination_date);
+    if (data.expiration_date !== undefined)
+      updateData.expiration_date = data.expiration_date
+        ? new Date(data.expiration_date)
+        : null;
+    if (data.batch_number !== undefined)
+      updateData.batch_number = data.batch_number;
+    if (data.animal_id !== undefined) {
+      const animal = await prisma.animal.findUnique({
+        where: { id: data.animal_id },
       });
-
-      return VaccinationMapper.prismaToPublic(updated);
-    } catch (err) {
-      return null;
+      if (!animal) throw new Error("Animal not found");
+      updateData.animal_id = data.animal_id;
     }
+
+    const updated = await prisma.vaccination.update({
+      where: { id },
+      data: updateData,
+    });
+
+    return VaccinationMapper.prismaToPublic(updated);
   },
 
   async deleteVaccination(id: string): Promise<boolean> {

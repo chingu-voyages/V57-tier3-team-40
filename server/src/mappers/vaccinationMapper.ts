@@ -11,15 +11,15 @@ export const VaccinationMapper = {
 
     const result: VaccinationPublic = {
       id: v.id,
-      vaccineName: v.vaccine_name,
-      vaccinationDate: dbVaccinationDate.toISOString(),
-      expirationDate: v.expiration_date
+      vaccine_name: v.vaccine_name,
+      vaccination_date: dbVaccinationDate.toISOString(),
+      expiration_date: v.expiration_date
         ? v.expiration_date.toISOString()
         : null,
-      batchNumber: v.batch_number ?? null,
-      createdAt: v.created_at.toISOString(),
-      updatedAt: v.updated_at.toISOString(),
-      animalId: v.animal_id,
+      batch_number: v.batch_number ?? null,
+      created_at: v.created_at.toISOString(),
+      updated_at: v.updated_at.toISOString(),
+      animal_id: v.animal_id,
     };
 
     return result;

@@ -49,5 +49,4 @@ temp/
 # Prisma
 server/generated/prisma
 
-server/package-lock.json
-server/package.json
+
