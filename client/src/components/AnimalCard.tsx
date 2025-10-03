@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import { useNavigate } from "react-router-dom";
 import type { Animal } from "../types/animal";
 
 interface AnimalCardProps {
@@ -6,8 +7,17 @@ interface AnimalCardProps {
 }
 
 const AnimalCard: FC<AnimalCardProps> = ({ animal }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/animals/${animal.id}`);
+  };
+
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+    <div 
+      className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer transform hover:scale-105"
+      onClick={handleClick}
+    >
       {animal.image && (
         <div className="h-48 bg-gray-200 overflow-hidden">
           <img
