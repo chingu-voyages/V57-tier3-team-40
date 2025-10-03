@@ -1,7 +1,7 @@
 import type { FC } from "react"
 import Component1 from "../components/Component1";
-import Component2 from "../components/Component2";
 import AdoptHighlight from "../components/AdoptHighlight";
+import { PetCarousel } from "../components/PetCarousel";
 
 const Home: FC = () => {
   return (
@@ -10,9 +10,7 @@ const Home: FC = () => {
         <Component1 />
       </section>
       <AdoptHighlight />
-      <section className="flex justify-center w-full">
-        <Component2 />
-      </section>
+      <PetCarousel />
     </div> 
   );
 };
