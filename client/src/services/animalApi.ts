@@ -17,6 +17,7 @@ import { puppies, type Puppy } from "../constants/petData/puppies";
 // };
 
 
+// Using local data for demonstration purposes
 // Helper function to convert Puppy to Animal
 const convertPuppyToAnimal = (puppy: Puppy, index: number): Animal => ({
   id: `puppy-${index + 1}`,
