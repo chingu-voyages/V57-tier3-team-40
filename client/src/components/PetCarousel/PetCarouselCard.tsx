@@ -1,5 +1,7 @@
 import React from 'react';
 import type {PetCarouselCardProps} from '../../types/nearbyAnimal';
+import genderMaleIcon from '../../assets/icons/gender-male.svg';
+import genderFemaleIcon from '../../assets/icons/gender-female.svg';
 
 export const PetCarouselCard: React.FC<PetCarouselCardProps> = ({
                                                                     animal,
@@ -16,19 +18,19 @@ export const PetCarouselCard: React.FC<PetCarouselCardProps> = ({
     const renderGenderIcon = () => {
         if (animal.gender?.toLowerCase() === 'male') {
             return (
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="14" r="6" stroke="#60A5FA" strokeWidth="2"/>
-                    <path d="M17.5 8.5L18 8M18 8L18.5 7.5M18 8L18 3M18 3L13 3M18 3L23 3" stroke="#60A5FA"
-                          strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                <img
+                    src={genderMaleIcon}
+                    alt="Male"
+                    className="w-5 h-5"
+                />
             );
         }
         return (
-            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="10" r="6" stroke="#EC4899" strokeWidth="2"/>
-                <path d="M12 16V22M9 19H15" stroke="#EC4899" strokeWidth="2" strokeLinecap="round"
-                      strokeLinejoin="round"/>
-            </svg>
+            <img
+                src={genderFemaleIcon}
+                alt="Female"
+                className="w-5 h-5"
+            />
         );
     };
 
@@ -37,8 +39,15 @@ export const PetCarouselCard: React.FC<PetCarouselCardProps> = ({
             className="embla__slide flex-[0_0_100%] min-w-0 pl-4 md:flex-[0_0_50%] lg:flex-[0_0_33.333%] xl:flex-[0_0_25%]">
             <div
                 onClick={handleClick}
+                style={{
+                    width: '351px',
+                    height: '499px',
+                    borderRadius: '15px',
+                    background: '#FFFFFF',
+                    opacity: 1
+                }}
                 className={`
-          bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transform transition-all duration-300
+          shadow-lg overflow-hidden cursor-pointer transform transition-all duration-300
           hover:shadow-xl hover:scale-105
           ${isSelected ? 'ring-2 ring-purple-500' : ''}
         `}

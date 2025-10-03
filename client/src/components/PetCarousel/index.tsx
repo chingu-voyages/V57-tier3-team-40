@@ -144,7 +144,7 @@ export const PetCarousel: React.FC = () => {
                     )}
                 </div>
 
-                <div className="max-w-6xl mx-auto">
+                <div className="max-w-none mx-auto py-6">
                     {renderContent()}
                 </div>
 
