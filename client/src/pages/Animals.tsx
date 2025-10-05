@@ -1,9 +1,15 @@
 import type { FC } from "react";
 import { useQuery } from "@tanstack/react-query";
-import AnimalCard from "../components/AnimalCard";
+import { useSearchParams } from "react-router-dom";
 import { animalApi } from "../services/animalApi";
+import AnimalCard from "../components/AnimalCard";
 
 const Animals: FC = () => {
+  const [searchParams] = useSearchParams();
+  const breedParam = searchParams.get("breed");
+  const locationParam = searchParams.get("location");
+  const [city, state] = locationParam ? locationParam.split(",") : ["", ""];
+
   const {
     data: animals,
     isLoading,
@@ -12,6 +18,21 @@ const Animals: FC = () => {
     queryKey: ["animals"],
     queryFn: animalApi.getAllAnimals,
   });
+
+  const filteredAnimals =
+    animals?.filter((a) => {
+      const matchesBreed = breedParam
+        ? a.breed.toLowerCase().includes(breedParam.toLowerCase())
+        : true;
+
+      const matchesLocation =
+        city && state
+          ? a.city.toLowerCase() === city.toLowerCase() &&
+            a.state.toLowerCase() === state.toLowerCase()
+          : true;
+
+      return matchesBreed && matchesLocation;
+    }) ?? [];
 
   return (
     <div className="flex flex-col w-full min-h-screen">
@@ -45,18 +66,18 @@ const Animals: FC = () => {
             </div>
           )}
 
-          {animals && animals.length > 0 && (
+          {!isLoading && filteredAnimals.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {animals.map((animal) => (
+              {filteredAnimals.map((animal) => (
                 <AnimalCard key={animal.id} animal={animal} />
               ))}
             </div>
           )}
 
-          {animals && animals.length === 0 && !isLoading && (
+          {!isLoading && filteredAnimals.length === 0 && (
             <div className="text-center py-8">
               <p className="text-gray-600 text-lg">
-                No animals available at the moment.
+                No animals match your search.
               </p>
             </div>
           )}
