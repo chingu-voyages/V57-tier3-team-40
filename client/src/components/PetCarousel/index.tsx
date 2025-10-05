@@ -62,24 +62,23 @@ export const PetCarousel: React.FC = () => {
     };
 
     const getTitle = () => {
-        return 'Pets Available for Adoption';
+        return 'Pets Available for Adoption Nearby';
     };
 
     return (
         <section className="py-12 bg-[#FDF6EC]">
             <div className="container mx-auto px-4">
                 <div className="mb-8">
-                    <div className="flex items-center justify-between">
-                        <div className="flex-1"></div>
+                    <div className="flex items-center justify-between gap-4 mb-6">
+                        <div className="hidden md:block flex-1"></div>
 
-                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-normal text-[#104C35] text-center"
-                            style={{marginRight: '126px'}}>
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-normal text-[#104C35] text-center flex-1 md:flex-none">
                             {getTitle()}
                         </h2>
 
-                        <div className="flex-1 flex justify-start">
+                        <div className="hidden md:flex flex-1 justify-start gap-2">
                             {state.animals.length > 1 && (
-                                <div className="flex gap-2">
+                                <>
                                     <button
                                         onClick={() => {
                                             if (window.carouselScrollPrev) {
@@ -121,13 +120,12 @@ export const PetCarousel: React.FC = () => {
                                                   d="M9 5l7 7-7 7"/>
                                         </svg>
                                     </button>
-                                </div>
+                                </>
                             )}
                         </div>
                     </div>
 
-
-                    <div className="flex justify-center items-center mt-6">
+                    <div className="flex justify-center items-center">
                         <div className="w-full md:w-1/2 lg:w-1/3">
                             <LocationAutocomplete
                                 value={userLocation}
