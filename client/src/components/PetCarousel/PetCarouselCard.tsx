@@ -47,31 +47,16 @@ export const PetCarouselCard: React.FC<PetCarouselCardProps> = ({
             className="embla__slide flex-[0_0_100%] min-w-0 pl-4 md:flex-[0_0_50%] lg:flex-[0_0_33.333%] xl:flex-[0_0_25%]">
             <div
                 onClick={handleClick}
-                style={{
-                    width: '351px',
-                    height: '499px',
-                    borderRadius: '15px',
-                    background: '#FFFFFF',
-                    opacity: 1
-                }}
                 className={`
-          shadow-lg overflow-hidden cursor-pointer transform transition-all duration-300
-          hover:shadow-xl hover:scale-105
-          ${isSelected ? 'ring-2 ring-purple-500' : ''}
-        `}
+                    w-full max-w-[351px] mx-auto
+                    rounded-[15px] bg-white
+                    shadow-lg overflow-hidden cursor-pointer
+                    transform transition-all duration-300
+                    hover:shadow-xl hover:scale-105
+                    ${isSelected ? 'ring-2 ring-purple-500' : ''}
+                `}
             >
-                <div
-                    className="relative overflow-hidden"
-                    style={{
-                        width: '374.41px',
-                        height: '373.89px',
-                        marginTop: '-20.38px',
-                        marginLeft: '-4.96px',
-                        borderTopLeftRadius: '15px',
-                        borderTopRightRadius: '15px',
-                        opacity: 1
-                    }}
-                >
+                <div className="relative w-full aspect-square overflow-hidden rounded-t-[15px]">
                     <img
                         src={animal.image}
                         alt={animal.name}
@@ -81,38 +66,33 @@ export const PetCarouselCard: React.FC<PetCarouselCardProps> = ({
                 </div>
 
                 <div className="p-4">
-                    <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center justify-between mb-2 gap-2">
                         <h3
-                            className="truncate"
+                            className="truncate flex-1"
                             style={{
                                 fontFamily: 'Montserrat, sans-serif',
                                 fontWeight: 500,
                                 fontSize: '18px',
                                 lineHeight: '20px',
                                 letterSpacing: '-0.32px',
-                                color: '#232925',
-                                opacity: 1
+                                color: '#232925'
                             }}
                         >
                             {animal.name}
                         </h3>
-                        {renderGenderIcon()}
+                        <div className="flex-shrink-0">
+                            {renderGenderIcon()}
+                        </div>
                     </div>
 
-                    <div
-                        style={{
-                            width: '352.81px',
-                            height: '59.34px',
-                            opacity: 1
-                        }}
-                    >
-                        <p className="text-gray-600 text-sm mb-1">
+                    <div className="space-y-1">
+                        <p className="text-gray-600 text-sm">
                             {animal.breed}
                         </p>
 
                         <div className="flex items-center text-gray-500 text-sm">
-                            <IoLocationSharp className="w-4 h-4 mr-1" />
-                            {animal.city}, {animal.state}
+                            <IoLocationSharp className="w-4 h-4 mr-1 flex-shrink-0" />
+                            <span className="truncate">{animal.city}, {animal.state}</span>
                         </div>
                     </div>
                 </div>
