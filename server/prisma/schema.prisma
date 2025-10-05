@@ -3,8 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model User {
@@ -20,22 +21,37 @@ model User {
 }
 
 model Animal {
-  id              String    @id @default(cuid())
-  name            String
-  breed           String
-  gender          Gender
-  age             String
-  city            String
-  state           String
-  house_trained   String
-  health          String
-  good_with       String
-  image           String?
-  meet_puppy      String?
-  created_at      DateTime  @default(now())
-  updated_at      DateTime  @updatedAt
+  id            String        @id @default(cuid())
+  name          String
+  breed         String
+  gender        Gender
+  age           String
+  city          String
+  state         String
+  house_trained String
+  health        String
+  good_with     String
+  image         String?
+  meet_puppy    String?
+  created_at    DateTime      @default(now())
+  updated_at    DateTime      @updatedAt
+  vaccinations  Vaccination[]
 
   @@map("animals")
+}
+
+model Vaccination {
+  id               String    @id @default(cuid())
+  vaccine_name     String
+  vaccination_date DateTime
+  expiration_date  DateTime?
+  batch_number     String?
+  created_at       DateTime  @default(now())
+  updated_at       DateTime  @updatedAt
+  animal_id        String
+  animal           Animal    @relation(fields: [animal_id], references: [id])
+
+  @@map("vaccinations")
 }
 
 enum UserRole {
