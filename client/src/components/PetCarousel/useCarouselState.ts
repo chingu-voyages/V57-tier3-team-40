@@ -1,154 +1,69 @@
-import {useEffect, useState} from 'react';
-import type {CarouselState, NearbyAnimal, UserLocation} from '../../types/nearbyAnimal';
+import {useState} from 'react';
+import type {NearbyAnimal, UserLocation} from '../../types/nearbyAnimal';
 import {LocationService} from '../../services/locationService';
-import {NearbyAnimalsService} from '../../services/nearbyAnimalsService';
+import {useAnimals} from '../../hooks/useAnimals';
+
+type CarouselMode = 'loading' | 'error' | 'location_prompt' | 'nearby_pets' | 'all_pets';
 
 export const useCarouselState = () => {
-    const [state, setState] = useState<CarouselState>({
-        mode: 'loading',
-        userLocation: null,
-        animals: [],
-        error: null
-    });
+    const {data: animals = [], isLoading, error, refetch} = useAnimals();
+    const [userLocation, setUserLocationState] = useState<UserLocation | null>(null);
+    const [mode, setMode] = useState<CarouselMode>('all_pets');
 
-    useEffect(() => {
-        initializeCarousel();
-    }, []);
-
-    const initializeCarousel = async () => {
-        try {
-            setState(prev => ({
-                ...prev,
-                mode: 'loading'
-            }));
-            await showAllPets();
-        } catch (error) {
-            setState(prev => ({
-                ...prev,
-                mode: 'error',
-                error: error instanceof Error ? error.message : 'Failed to initialize carousel'
-            }));
-        }
-    };
+    const nearbyAnimals: NearbyAnimal[] = animals as NearbyAnimal[];
 
     const setLocation = async (location: UserLocation) => {
-        setState(prev => ({
-            ...prev,
-            mode: 'loading',
-            userLocation: location,
-            error: null
-        }));
-
-        try {
-            await loadNearbyAnimals(location);
-        } catch (error) {
-            setState(prev => ({
-                ...prev,
-                mode: 'error',
-                error: error instanceof Error ? error.message : 'Failed to load nearby animals'
-            }));
-        }
+        setUserLocationState(location);
+        setMode('nearby_pets');
     };
 
     const showAllPets = async () => {
-        setState(prev => ({
-            ...prev,
-            mode: 'loading',
-            userLocation: null,
-            error: null
-        }));
-
-        try {
-            const allAnimals = await NearbyAnimalsService.getAllAnimals();
-            const nearbyAnimals: NearbyAnimal[] = allAnimals as NearbyAnimal[];
-
-            setState(prev => ({
-                ...prev,
-                mode: 'all_pets',
-                animals: nearbyAnimals
-            }));
-        } catch (error) {
-            setState(prev => ({
-                ...prev,
-                mode: 'error',
-                error: error instanceof Error ? error.message : 'Failed to load animals'
-            }));
-        }
+        setUserLocationState(null);
+        setMode('all_pets');
+        await refetch();
     };
 
     const resetToLocationPrompt = () => {
         LocationService.clearLocation();
-        setState(prev => ({
-            ...prev,
-            mode: 'location_prompt',
-            userLocation: null,
-            animals: [],
-            error: null
-        }));
+        setUserLocationState(null);
+        setMode('location_prompt');
     };
 
     const retryLastAction = async () => {
-        const {userLocation} = state;
-
-        if (userLocation) {
-            await setLocation(userLocation);
-        } else {
-            await showAllPets();
-        }
+        await refetch();
     };
 
     const refreshAnimals = async () => {
-        const {userLocation, mode} = state;
-
-        if (mode === 'nearby_pets' && userLocation) {
-            await loadNearbyAnimals(userLocation);
-        } else if (mode === 'all_pets') {
-            await showAllPets();
-        }
+        await refetch();
     };
 
     const sortAnimals = (sortBy: 'name' | 'age' | 'breed') => {
-        setState(prev => ({
-            ...prev,
-            animals: [...prev.animals].sort((a, b) => {
-                switch (sortBy) {
-                    case 'name':
-                        return a.name.localeCompare(b.name);
-                    case 'age':
-                        return a.age.localeCompare(b.age);
-                    case 'breed':
-                        return a.breed.localeCompare(b.breed);
-                    default:
-                        return 0;
-                }
-            })
-        }));
+        return [...nearbyAnimals].sort((a, b) => {
+            switch (sortBy) {
+                case 'name':
+                    return a.name.localeCompare(b.name);
+                case 'age':
+                    return a.age.localeCompare(b.age);
+                case 'breed':
+                    return a.breed.localeCompare(b.breed);
+                default:
+                    return 0;
+            }
+        });
     };
 
-    const loadNearbyAnimals = async (location: UserLocation) => {
-        try {
-            const response = await NearbyAnimalsService.getNearbyAnimals(
-                location,
-                50
-            );
-
-            setState(prev => ({
-                ...prev,
-                mode: 'nearby_pets',
-                animals: response.animals,
-                userLocation: location
-            }));
-        } catch (error) {
-            throw error;
-        }
+    const state = {
+        mode: isLoading ? 'loading' as const : error ? 'error' as const : mode,
+        userLocation,
+        animals: nearbyAnimals,
+        error: error?.message || null
     };
 
-    const isLoading = state.mode === 'loading';
-    const hasError = state.mode === 'error';
-    const showLocationPrompt = state.mode === 'location_prompt';
-    const showAnimals = state.mode === 'nearby_pets' || state.mode === 'all_pets';
-    const hasAnimals = state.animals.length > 0;
-    const isNearbyMode = state.mode === 'nearby_pets';
+    const hasError = !!error;
+    const showLocationPrompt = mode === 'location_prompt';
+    const showAnimals = mode === 'nearby_pets' || mode === 'all_pets';
+    const hasAnimals = nearbyAnimals.length > 0;
+    const isNearbyMode = mode === 'nearby_pets';
 
     return {
         state,
