@@ -59,13 +59,8 @@ export const useCarouselState = () => {
         }));
 
         try {
-            const allAnimals = await NearbyAnimalsService.getAllAnimals(true);
-            const nearbyAnimals: NearbyAnimal[] = allAnimals.map(animal => ({
-                ...animal,
-                distance: 0,
-                distanceUnit: 'miles' as const,
-                distanceDisplay: undefined
-            }));
+            const allAnimals = await NearbyAnimalsService.getAllAnimals();
+            const nearbyAnimals: NearbyAnimal[] = allAnimals as NearbyAnimal[];
 
             setState(prev => ({
                 ...prev,
@@ -112,22 +107,11 @@ export const useCarouselState = () => {
         }
     };
 
-    const filterAnimalsByDistance = (maxDistance: number) => {
-        setState(prev => ({
-            ...prev,
-            animals: prev.animals.filter(animal =>
-                animal.distance <= maxDistance || animal.distance === 0
-            )
-        }));
-    };
-
-    const sortAnimals = (sortBy: 'distance' | 'name' | 'age' | 'breed') => {
+    const sortAnimals = (sortBy: 'name' | 'age' | 'breed') => {
         setState(prev => ({
             ...prev,
             animals: [...prev.animals].sort((a, b) => {
                 switch (sortBy) {
-                    case 'distance':
-                        return a.distance - b.distance;
                     case 'name':
                         return a.name.localeCompare(b.name);
                     case 'age':
@@ -143,7 +127,7 @@ export const useCarouselState = () => {
 
     const loadNearbyAnimals = async (location: UserLocation) => {
         try {
-            const response = await NearbyAnimalsService.getNearbyAnimalsWithFallback(
+            const response = await NearbyAnimalsService.getNearbyAnimals(
                 location,
                 50
             );
@@ -173,7 +157,6 @@ export const useCarouselState = () => {
         resetToLocationPrompt,
         retryLastAction,
         refreshAnimals,
-        filterAnimalsByDistance,
         sortAnimals,
         isLoading,
         hasError,
