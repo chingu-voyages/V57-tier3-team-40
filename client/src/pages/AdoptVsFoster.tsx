@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import Component1 from "../components/Component1";
-import Component2 from "../components/Component2";
+import AdoptOrFoster from "../components/AdoptOrFoster";
 
 const AdoptVsFoster: FC = () => {
   return (
@@ -9,7 +9,7 @@ const AdoptVsFoster: FC = () => {
         <Component1 />
       </section>
       <section className="flex justify-center w-full">
-        <Component2 />
+        <AdoptOrFoster />
       </section>
     </div> 
   );
