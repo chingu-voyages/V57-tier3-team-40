@@ -127,7 +127,7 @@ export const PetCarousel: React.FC = () => {
                     </div>
 
 
-                    <div className="flex justify-center items-center">
+                    <div className="flex justify-center items-center mt-6">
                         <div className="w-full md:w-1/2 lg:w-1/3">
                             <LocationAutocomplete
                                 value={userLocation}
@@ -137,16 +137,9 @@ export const PetCarousel: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="max-w-none mx-auto py-6">
+                <div className="max-w-none mx-auto py-3">
                     {renderContent()}
                 </div>
-
-                {/*{showAnimals && hasAnimals && (*/}
-                {/*    <div className="text-center mt-6 text-gray-600">*/}
-                {/*        Showing {state.animals.length} pet{state.animals.length !== 1 ? 's' : ''}*/}
-                {/*        {isNearbyMode && ' nearby'}*/}
-                {/*    </div>*/}
-                {/*)}*/}
             </div>
         </section>
     );
