@@ -85,13 +85,11 @@ export const PetCarouselCard: React.FC<PetCarouselCardProps> = ({
                         <h3
                             className="truncate"
                             style={{
-                                width: '77px',
-                                height: '22px',
                                 fontFamily: 'Montserrat, sans-serif',
                                 fontWeight: 500,
-                                fontSize: '24px',
-                                lineHeight: '22px',
-                                letterSpacing: '-0.43px',
+                                fontSize: '18px',
+                                lineHeight: '20px',
+                                letterSpacing: '-0.32px',
                                 color: '#232925',
                                 opacity: 1
                             }}
