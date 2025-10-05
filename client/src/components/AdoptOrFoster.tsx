@@ -1,6 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import adpotOrFoster from "../assets/homepage/adoptOrFoster.png";
 
 const AdoptOrFoster = () => {
+  const navigate = useNavigate(); 
+
+  const handleLearnMoreClick = () => {
+    navigate("/adopt-vs-foster"); 
+  };
+
   return (
     <section className="max-w-[1440px] mx-auto lg:flex lg:flex-row items-center mb-23 lg:mb-38 xl:mb-50">
       <div className="px-6 mb-10 lg:mb-0 lg:w-[48%] lg:px-20 xl:px-28">
@@ -18,6 +25,7 @@ const AdoptOrFoster = () => {
 
         <div className="flex justify-center lg:justify-start">
           <button
+            onClick={handleLearnMoreClick}
             className="mt-10 bg-[#08872B] text-white rounded-[15px] shadow-[0px_6px_6px_rgba(0,0,0,0.25)] hover:bg-[#0a9931] cursor-pointer
                      transition-transform duration-300 ease-in-out"
             style={{

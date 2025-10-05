@@ -1,4 +1,11 @@
+import { useEffect } from "react";
+
+
 const AdoptOrFosterPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="max-w-3xl mx-auto px-6 py-12 bg-[#FDF6EC]">
       <h1 className="text-5xl text-[#104C35] font-medium text-center mt-10 mb-18">
