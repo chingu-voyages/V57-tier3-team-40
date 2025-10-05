@@ -1,17 +1,21 @@
 import { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 import type { EmblaCarouselType } from 'embla-carousel';
 import type { EmblaOptionsType } from '../../types/nearbyAnimal';
 
 export const useEmblaCarouselHook = (options: EmblaOptionsType = {}) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: 'start',
-    loop: false,
-    skipSnaps: false,
-    containScroll: 'trimSnaps',
-    dragFree: false,
-    ...options
-  });
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      align: 'start',
+      loop: true,
+      skipSnaps: false,
+      containScroll: 'trimSnaps',
+      dragFree: false,
+      ...options
+    },
+    [Autoplay({ delay: 3000, stopOnInteraction: true })]
+  );
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);

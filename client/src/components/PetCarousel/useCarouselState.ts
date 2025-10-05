@@ -17,21 +17,11 @@ export const useCarouselState = () => {
 
     const initializeCarousel = async () => {
         try {
-            const storedLocation = LocationService.getStoredLocation();
-
-            if (storedLocation) {
-                setState(prev => ({
-                    ...prev,
-                    mode: 'loading',
-                    userLocation: storedLocation
-                }));
-                await loadNearbyAnimals(storedLocation);
-            } else {
-                setState(prev => ({
-                    ...prev,
-                    mode: 'location_prompt'
-                }));
-            }
+            setState(prev => ({
+                ...prev,
+                mode: 'loading'
+            }));
+            await showAllPets();
         } catch (error) {
             setState(prev => ({
                 ...prev,
