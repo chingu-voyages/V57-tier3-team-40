@@ -123,7 +123,7 @@ const AdoptOrFosterPage = () => {
                 <th className="text-left py-4 px-6 text-white text-xl font-semibold border-r border-black">Adopting</th>
               </tr>
             </thead>
-            <tbody className="bg-[#F5EFE6]">
+            <tbody className="bg-[#FDF6EC]">
               <tr className="border-b-1">
                 <td className="py-5 px-6 font-bold text-gray-900 text-lg border-r">
                   Commitment<br />Length
