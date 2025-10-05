@@ -1,9 +1,10 @@
-import React from 'react';
-import {LocationPrompt} from './LocationPrompt';
+import React, {useMemo, useState} from 'react';
 import {PetCarouselCards} from './PetCarouselCards';
 import {LoadingState} from './LoadingState';
 import {ErrorState} from './ErrorState';
 import {useCarouselState} from './useCarouselState';
+import LocationAutocomplete from '../LocationAutocomplete';
+import type {Location} from '../../types/location';
 
 declare global {
     interface Window {
@@ -13,29 +14,29 @@ declare global {
 }
 
 export const PetCarousel: React.FC = () => {
+    const [userLocation, setUserLocation] = useState<Location>({city: "", state: ""});
+
     const {
         state,
-        setLocation,
-        showAllPets,
         resetToLocationPrompt,
         retryLastAction,
         isLoading,
         hasError,
-        showLocationPrompt,
-        showAnimals,
         isNearbyMode
     } = useCarouselState();
 
-    const renderContent = () => {
-        if (showLocationPrompt) {
-            return (
-                <LocationPrompt
-                    onLocationSet={setLocation}
-                    onBrowseAll={showAllPets}
-                />
-            );
+    const filteredAnimals = useMemo(() => {
+        if (!userLocation.city || !userLocation.state) {
+            return state.animals;
         }
+        return state.animals.filter(
+            animal =>
+                animal.city?.toLowerCase() === userLocation.city.toLowerCase() &&
+                animal.state?.toLowerCase() === userLocation.state.toLowerCase()
+        );
+    }, [state.animals, userLocation]);
 
+    const renderContent = () => {
         if (isLoading) {
             return <LoadingState/>;
         }
@@ -50,25 +51,18 @@ export const PetCarousel: React.FC = () => {
             );
         }
 
-        if (showAnimals) {
-            return (
-                <PetCarouselCards
-                    animals={state.animals}
-                    userLocation={state.userLocation}
-                    isNearbyMode={isNearbyMode}
-                    onChangeLocation={resetToLocationPrompt}
-                />
-            );
-        }
-
-        return null;
+        return (
+            <PetCarouselCards
+                animals={filteredAnimals}
+                userLocation={state.userLocation}
+                isNearbyMode={isNearbyMode}
+                onChangeLocation={resetToLocationPrompt}
+            />
+        );
     };
 
     const getTitle = () => {
-        if (isNearbyMode && state.userLocation) {
-            return 'Pets Available for Adoption Nearby';
-        }
-        return 'Pets Available for Adoption Nearby';
+        return 'Pets Available for Adoption';
     };
 
     return (
@@ -84,7 +78,7 @@ export const PetCarousel: React.FC = () => {
                         </h2>
 
                         <div className="flex-1 flex justify-start">
-                            {showAnimals && state.animals.length > 1 && (
+                            {state.animals.length > 1 && (
                                 <div className="flex gap-2">
                                     <button
                                         onClick={() => {
@@ -132,16 +126,15 @@ export const PetCarousel: React.FC = () => {
                         </div>
                     </div>
 
-                    {(showAnimals || hasError) && (
-                        <div className="text-center mt-4">
-                            <button
-                                onClick={resetToLocationPrompt}
-                                className="text-purple-600 hover:text-purple-700 text-sm underline transition-colors"
-                            >
-                                Change Location
-                            </button>
+
+                    <div className="flex justify-center items-center">
+                        <div className="w-full md:w-1/2 lg:w-1/3">
+                            <LocationAutocomplete
+                                value={userLocation}
+                                onChange={setUserLocation}
+                            />
                         </div>
-                    )}
+                    </div>
                 </div>
 
                 <div className="max-w-none mx-auto py-6">

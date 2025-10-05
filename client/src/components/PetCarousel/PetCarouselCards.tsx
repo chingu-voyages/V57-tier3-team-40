@@ -2,6 +2,7 @@ import React from 'react';
 import type {NearbyAnimal, UserLocation} from '../../types/nearbyAnimal';
 import {PetCarouselCard} from './PetCarouselCard';
 import {useEmblaCarouselHook} from './useEmblaCarousel';
+import {EmblaPagination} from './EmblaPagination';
 
 interface PetCarouselCardsProps {
     animals: NearbyAnimal[];
@@ -18,7 +19,10 @@ export const PetCarouselCards: React.FC<PetCarouselCardsProps> = ({
     const {
         emblaRef,
         scrollPrev,
-        scrollNext
+        scrollNext,
+        selectedIndex,
+        scrollSnaps,
+        scrollTo
     } = useEmblaCarouselHook();
 
     React.useEffect(() => {
@@ -27,10 +31,6 @@ export const PetCarouselCards: React.FC<PetCarouselCardsProps> = ({
             window.carouselScrollNext = scrollNext;
         }
     }, [scrollPrev, scrollNext]);
-
-    const handleCardClick = (animal: NearbyAnimal) => {
-        console.log('Animal clicked:', animal.name);
-    };
 
     if (animals.length === 0) {
         return (
@@ -64,26 +64,25 @@ export const PetCarouselCards: React.FC<PetCarouselCardsProps> = ({
 
     return (
         <div className="relative">
-            <div className="embla overflow-hidden" ref={emblaRef}>
+            <div className="embla overflow-hidden" ref={emblaRef} style={{paddingTop: '25px', paddingBottom: '50px'}}>
                 <div className="embla__container flex">
                     {animals.map((animal) => (
                         <PetCarouselCard
                             key={animal.id}
                             animal={animal}
-                            onClick={handleCardClick}
                             showDistance={isNearbyMode}
                         />
                     ))}
                 </div>
             </div>
 
-            {/*{animals.length > 1 && (*/}
-            {/*    <EmblaPagination*/}
-            {/*        selectedIndex={selectedIndex}*/}
-            {/*        scrollSnaps={scrollSnaps}*/}
-            {/*        onDotClick={scrollTo}*/}
-            {/*    />*/}
-            {/*)}*/}
+            {animals.length > 1 && (
+                <EmblaPagination
+                    selectedIndex={selectedIndex}
+                    scrollSnaps={scrollSnaps}
+                    onDotClick={scrollTo}
+                />
+            )}
         </div>
     );
 };
