@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Home from "./pages/Home";
 import Animals from "./pages/Animals";
 import AnimalDetails from "./pages/AnimalDetails";
-import AdoptVsFoster from "./pages/AdoptVsFoster";
+import AdoptVsFoster from "./pages/AdoptVsFosterPage";
 import Layout from "./layouts/Layout"
 
 
