@@ -1,6 +1,6 @@
 import type { FC } from "react"
 import Component1 from "../components/Component1";
-import Component2 from "../components/Component2";
+import Component2 from "../components/AdoptOrFoster";
 import AdoptHighlight from "../components/AdoptHighlight";
 
 const Home: FC = () => {

@@ -10,3 +10,11 @@ body {
 .green-text:hover {
     color: #08872b;
 }
+
+/* Font: Kitten Paws */
+@font-face {
+    font-family: 'Kitten Paws';
+    src: url('/src/assets/fonts/KittenPaws-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
