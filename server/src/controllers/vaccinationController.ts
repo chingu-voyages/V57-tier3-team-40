@@ -2,13 +2,13 @@ import { Request, Response } from "express";
 import { vaccinationService } from "../services";
 
 export const vaccinationController = {
-  async index(req: Request, res: Response) {
+  async getAllAnimalVaccination(req: Request, res: Response) {
     const { animal_id } = req.params;
     const vaccines = await vaccinationService.getAllVaccinations(animal_id);
     res.json(vaccines);
   },
 
-  async show(req: Request, res: Response) {
+  async getVaccinationById(req: Request, res: Response) {
     const { id } = req.params;
     const vaccine = await vaccinationService.getVaccinationById(id);
     if (!vaccine)
@@ -16,7 +16,7 @@ export const vaccinationController = {
     return res.json(vaccine);
   },
 
-  async create(req: Request, res: Response) {
+  async createVaccination(req: Request, res: Response) {
     try {
       const payload = req.body;
       const { animal_id } = req.params;
@@ -34,7 +34,7 @@ export const vaccinationController = {
         .json({ message: "Server error", detail: err.message });
     }
   },
-  async update(req: Request, res: Response) {
+  async updateVaccination(req: Request, res: Response) {
     const { id } = req.params;
     const payload = req.body;
     try {
@@ -53,7 +53,7 @@ export const vaccinationController = {
         .json({ message: "Server error", detail: err.message });
     }
   },
-  async delete(req: Request, res: Response) {
+  async deleteVaccination(req: Request, res: Response) {
     const { id } = req.params;
     const ok = await vaccinationService.deleteVaccination(id);
     if (!ok)
