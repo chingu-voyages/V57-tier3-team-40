@@ -25,7 +25,7 @@ model Animal {
   name          String
   breed         String
   gender        Gender
-  type          AnimalType
+  type          AnimalType    @default(other)
   age           String
   city          String
   state         String
