@@ -7,7 +7,7 @@ const AdoptOrFosterPage = () => {
   }, []);
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-12 bg-[#FDF6EC]">
+    <div className="max-w-3xl mx-auto px-6 py-12">
       <h1 className="text-5xl text-[#104C35] font-medium text-center mt-10 mb-18">
         Adopt or Foster
       </h1>
@@ -123,7 +123,7 @@ const AdoptOrFosterPage = () => {
                 <th className="text-left py-4 px-6 text-white text-xl font-semibold border-r border-black">Adopting</th>
               </tr>
             </thead>
-            <tbody className="bg-[#FDF6EC]">
+            <tbody className="bg-white">
               <tr className="border-b-1">
                 <td className="py-5 px-6 font-bold text-gray-900 text-lg border-r">
                   Commitment<br />Length

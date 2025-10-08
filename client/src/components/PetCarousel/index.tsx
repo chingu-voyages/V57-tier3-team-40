@@ -66,7 +66,7 @@ export const PetCarousel: React.FC = () => {
     };
 
     return (
-        <section className="py-12 bg-[#FDF6EC]">
+        <section className="py-12">
             <div className="container mx-auto px-4">
                 <div className="mb-8">
                     <div className="flex items-center justify-between gap-4 mb-6">
