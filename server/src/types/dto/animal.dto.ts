@@ -1,9 +1,11 @@
 import { Gender } from "../enums/gender.enum";
+import { AnimalType } from "@prisma/client";
 
 export interface CreateAnimalDto {
   name: string;
   breed: string;
   gender: Gender;
+  type: AnimalType;
   age: string;
   city: string;
   state: string;
@@ -18,6 +20,7 @@ export interface UpdateAnimalDto {
   name?: string;
   breed?: string;
   gender?: Gender;
+  type?: AnimalType;
   age?: string;
   city?: string;
   state?: string;

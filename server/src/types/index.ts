@@ -19,6 +19,12 @@ export {
 export { CreateAnimalDto, UpdateAnimalDto } from "./dto/animal.dto";
 
 export {
+  AnimalFilterParams,
+  AnimalFilterType,
+  ANIMAL_FILTER_TYPES,
+} from "./dto/animalFilter.dto";
+
+export {
   CreateVaccinationDto,
   UpdateVaccinationDto,
 } from "./dto/vaccination.dto";
