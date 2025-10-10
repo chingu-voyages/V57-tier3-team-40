@@ -97,7 +97,7 @@ const LocationAutocomplete: FC<LocationAutocompleteProps> = ({ value, onChange }
   const showClearButton = !isEditing && value.city && value.state;
 
   return (
-    <div ref={dropdownRef} className="relative w-full">
+    <div ref={dropdownRef} className="relative w-[262px] md:w-full">
       <input
         type="text"
         placeholder="Search by city or state"
@@ -105,7 +105,12 @@ const LocationAutocomplete: FC<LocationAutocompleteProps> = ({ value, onChange }
         onChange={handleInputChange}
         onFocus={handleInputFocus}
         onKeyDown={handleKeyDown}
-        className="w-full px-4 py-2 pr-10 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 text-gray-700 placeholder-gray-400 bg-white"
+        className="w-[262px] md:w-full h-[44px] md:h-auto pl-4 pr-10 md:py-2 border border-[1px] md:border-gray-700 rounded-[10px] md:rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 text-gray-700 placeholder-gray-400 bg-white text-[17px] md:text-base leading-[22px] md:leading-normal tracking-[-0.43px] md:tracking-normal"
+        style={{
+          fontFamily: 'SF Pro, sans-serif',
+          fontWeight: 400,
+          opacity: 1,
+        }}
       />
 
       {loading && (

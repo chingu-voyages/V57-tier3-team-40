@@ -5,11 +5,13 @@ import {PetCarousel} from "../components/PetCarousel";
 
 const Home: FC = () => {
     return (
-        <div className="w-full py-8 space-y-4">
+        <div className="w-full">
             <section className="flex justify-center w-full">
                 <PetFinderSection/>
             </section>
-            <AdoptHighlight/>
+            <div style={{ marginTop: '211px' }} className="w-full">
+                <AdoptHighlight/>
+            </div>
             <PetCarousel/>
         </div>
     );
