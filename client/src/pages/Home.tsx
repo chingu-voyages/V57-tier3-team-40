@@ -2,6 +2,7 @@ import type {FC} from "react"
 import Component1 from "../components/Component1";
 import AdoptHighlight from "../components/AdoptHighlight";
 import {PetCarousel} from "../components/PetCarousel";
+import AdoptOrFoster from "../components/AdoptOrFoster";
 
 const Home: FC = () => {
     return (
@@ -11,6 +12,7 @@ const Home: FC = () => {
             </section>
             <AdoptHighlight/>
             <PetCarousel/>
+            <AdoptOrFoster/>
         </div>
     );
 };

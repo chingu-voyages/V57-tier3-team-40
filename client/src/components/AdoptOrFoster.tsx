@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import adpotOrFoster from "../assets/homepage/adoptOrFoster.png";
+import { Button, SectionHeading, Paragraph } from "./SectionTemplate";
 
 const AdoptOrFoster = () => {
   const navigate = useNavigate(); 
@@ -11,34 +12,31 @@ const AdoptOrFoster = () => {
   return (
     <section className="max-w-[1440px] mx-auto lg:flex lg:flex-row items-center mb-23 lg:mb-38 xl:mb-50">
       <div className="px-6 mb-10 lg:mb-0 lg:w-[48%] lg:px-20 xl:px-28">
-        <h2
-          className="text-3xl lg:text-4xl xl:text-5xl text-[#104C35] font-semibold lg:font-medium text-center 
-          lg:text-left mb-5 xl:mb-8"
+        <SectionHeading 
+          className="mb-5 xl:mb-8"
+          size="large"
+          align="left"
         >
           Adopt or Foster?
-        </h2>
-        <p className="lg:text-[1.25rem] xl:text-[1.5rem] mb-3">
-          Not sure if fostering or adopting is the right choice for you? We’ll
+        </SectionHeading>
+        <Paragraph 
+          className="mb-3"
+          size="large"
+        >
+          Not sure if fostering or adopting is the right choice for you? We'll
           walk you through the differences so you can find the best way to
           welcome a furry friend into your life.
-        </p>
+        </Paragraph>
 
         <div className="flex justify-center lg:justify-start">
-          <button
+          <Button
             onClick={handleLearnMoreClick}
-            className="mt-10 bg-[#08872B] text-white rounded-[15px] shadow-[0px_6px_6px_rgba(0,0,0,0.25)] hover:bg-[#0a9931] cursor-pointer
-                     transition-transform duration-300 ease-in-out"
-            style={{
-              fontFamily: "Kitten Paws, cursive",
-              fontSize: "2.7rem",
-              width: "474px",
-              height: "98.6px",
-              textShadow: "1px 1px 2px #0d6028",
-              letterSpacing: "1px",
-            }}
+            className="mt-10"
+            variant="primary"
+            size="large"
           >
             Learn More
-          </button>
+          </Button>
         </div>
       </div>
 
