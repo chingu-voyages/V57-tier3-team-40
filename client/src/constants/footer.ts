@@ -1,9 +1,9 @@
-import footerLogo from '../assets/footer/footerLogo.png'
+import logo  from "../assets/header/logo.png"
 import figmaIcon from '../assets/footer/figma.svg'
 import neonIcon from '../assets/footer/neon-logo.svg'
 
 
-export const footLogo = footerLogo
+export const footLogo = logo
 export const figmaLogo = figmaIcon
 export const neonLogo = neonIcon
 
