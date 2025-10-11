@@ -11,7 +11,7 @@ export type Member = {
     name: string
     role: string
     github: string
-    linkedin: string
+    linkedin?: string
 }
 
 export const members: Member[] = [
@@ -39,12 +39,6 @@ export const members: Member[] = [
         role: "UX / UI Designer",
         github: "https://github.com/mingshi0821",
         linkedin: "https://www.linkedin.com/in/mingshi-hui"
-    },
-    {
-        name: "Rigo L",
-        role: "Web Developer",
-        github: "https://github.com/r1g023",
-        linkedin: "https://www.linkedin.com/in/rigo0101"
     },
     {
         name: "Rika Miyata",

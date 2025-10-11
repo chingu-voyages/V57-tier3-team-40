@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import adpotOrFoster from "../assets/homepage/adoptOrFoster.png";
+import adpotOrFoster from "../assets/homepage/adoptOrFoster.avif";
 import { Button, SectionHeading, Paragraph } from "./SectionTemplate";
 
 const AdoptOrFoster = () => {
