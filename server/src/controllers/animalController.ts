@@ -1,10 +1,56 @@
 import { Request, Response } from "express";
 import { animalService } from "../services";
+import { AnimalFilterParams, AnimalFilterType } from "../types";
 
 export const animalController = {
   async getAllAnimals(req: Request, res: Response): Promise<void> {
     try {
-      const animals = await animalService.getAllAnimals();
+      const filters: AnimalFilterParams = {};
+
+      if (req.query.type) {
+        const typeQuery = req.query.type as string;
+        filters.type = typeQuery.includes(',')
+          ? typeQuery.split(',').map(t => t.trim() as AnimalFilterType)
+          : typeQuery as AnimalFilterType;
+      }
+
+      if (req.query.breed) {
+        const breedQuery = req.query.breed as string;
+        filters.breed = breedQuery.includes(',')
+          ? breedQuery.split(',').map(b => b.trim())
+          : breedQuery;
+      }
+
+      if (req.query.gender) {
+        const genderQuery = req.query.gender as string;
+        filters.gender = genderQuery.includes(',')
+          ? genderQuery.split(',').map(g => g.trim())
+          : genderQuery;
+      }
+
+      if (req.query.age) {
+        const ageQuery = req.query.age as string;
+        filters.age = ageQuery.includes(',')
+          ? ageQuery.split(',').map(a => a.trim())
+          : ageQuery;
+      }
+
+      if (req.query.ageMin) {
+        filters.ageMin = parseInt(req.query.ageMin as string, 10);
+      }
+
+      if (req.query.ageMax) {
+        filters.ageMax = parseInt(req.query.ageMax as string, 10);
+      }
+
+      if (req.query.goodWith) {
+        const goodWithQuery = req.query.goodWith as string;
+        filters.goodWith = goodWithQuery.includes(',')
+          ? goodWithQuery.split(',').map(g => g.trim())
+          : goodWithQuery;
+      }
+
+      const animals = await animalService.getAllAnimals(filters);
       res.json(animals);
     } catch (error) {
       console.error("Error getting all animals:", error);

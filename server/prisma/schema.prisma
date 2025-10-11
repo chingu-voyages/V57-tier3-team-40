@@ -25,6 +25,7 @@ model Animal {
   name          String
   breed         String
   gender        Gender
+  type          AnimalType    @default(other)
   age           String
   city          String
   state         String
@@ -62,4 +63,10 @@ enum UserRole {
 enum Gender {
   Male
   Female
+}
+
+enum AnimalType {
+  cat
+  dog
+  other
 }

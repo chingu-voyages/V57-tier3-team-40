@@ -1,4 +1,5 @@
 import { AnimalPublic, Gender } from "../types";
+import { AnimalType } from "@prisma/client";
 
 export const AnimalMapper = {
   prismaToPublic: (animal: any): AnimalPublic => ({
@@ -6,6 +7,7 @@ export const AnimalMapper = {
     name: animal.name,
     breed: animal.breed,
     gender: animal.gender as Gender,
+    type: animal.type as AnimalType,
     age: animal.age,
     city: animal.city,
     state: animal.state,

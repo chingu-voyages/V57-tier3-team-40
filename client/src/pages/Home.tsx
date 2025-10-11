@@ -1,16 +1,18 @@
 import type {FC} from "react"
-import Component1 from "../components/Component1";
+import PetFinderSection from "../components/PetFinderSection";
 import AdoptHighlight from "../components/AdoptHighlight";
 import {PetCarousel} from "../components/PetCarousel";
 import AdoptOrFoster from "../components/AdoptOrFoster";
 
 const Home: FC = () => {
     return (
-        <div className="w-full py-8 space-y-4">
+        <div className="w-full">
             <section className="flex justify-center w-full">
-                <Component1/>
+                <PetFinderSection/>
             </section>
-            <AdoptHighlight/>
+            <div style={{ marginTop: '211px' }} className="w-full">
+                <AdoptHighlight/>
+            </div>
             <PetCarousel/>
             <AdoptOrFoster/>
         </div>
