@@ -1,9 +1,9 @@
 import type {FC} from "react";
 import SearchBar from "./SearchBar";
-import puppyImage from "../assets/petFinderSection/puppy.jpg";
-import dogImage from "../assets/petFinderSection/dog.jpg";
-import kittenImage from "../assets/petFinderSection/kitten.jpg";
-import catImage from "../assets/petFinderSection/cat.jpg";
+import puppyImage from "../assets/petFinderSection/puppy.avif";
+import dogImage from "../assets/petFinderSection/dog.avif";
+import kittenImage from "../assets/petFinderSection/kitten.avif";
+import catImage from "../assets/petFinderSection/cat.avif";
 
 
 interface CategoryCardProps {

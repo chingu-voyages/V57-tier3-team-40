@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import backgroundImage from "../assets/petFinderSection/LeftSectionImage.jpg";
+import backgroundImage from "../assets/petFinderSection/LeftSectionImage.avif";
 
 const LeftHeroSection: FC = () => {
   return (
