@@ -1,12 +1,17 @@
 import type { FC } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import { useEffect } from "react";
 import { animalApi } from "../services/animalApi";
 import bgImage from "../assets/animalDetails/bg-image.png";
 
 const AnimalDetails: FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   const {
     data: animals,
