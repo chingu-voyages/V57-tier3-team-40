@@ -1,9 +1,11 @@
-import express, { Request, Response } from "express";
+import express, {Request, Response} from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import routes from "./src/routes";
-import { errorHandler, notFoundHandler } from "./src/middleware";
-import { connectDatabase } from "./src/config";
+import {errorHandler, notFoundHandler} from "./src/middleware";
+import serverless from "serverless-http";
+
+let dbInitialized = false;
 
 dotenv.config();
 
@@ -22,16 +24,18 @@ app.get("/", (_req: Request, res: Response) => {
 app.use(notFoundHandler);
 app.use(errorHandler);
 
-const startServer = async () => {
-    try {
-        await connectDatabase();
-        app.listen(PORT, () => {
-            console.log(`Server listening on http://localhost:${PORT}`);
-        });
-    } catch (error) {
-        console.error("Failed to start server:", error);
-        process.exit(1);
-    }
-};
+export default serverless(app);
 
-startServer();
+// const startServer = async () => {
+//     try {
+//         await connectDatabase();
+//         app.listen(PORT, () => {
+//             console.log(`Server listening on http://localhost:${PORT}`);
+//         });
+//     } catch (error) {
+//         console.error("Failed to start server:", error);
+//         process.exit(1);
+//     }
+// };
+
+// startServer();
