@@ -12,7 +12,16 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-app.use(cors());
+const allowedOrigins: string[] = [
+    'http://localhost:5173',
+    'https://v57-tier3-team-40.netlify.app',
+    process.env.FRONTEND_URL
+].filter((origin): origin is string => Boolean(origin));
+
+app.use(cors({
+    origin: allowedOrigins,
+    credentials: true
+}));
 app.use(express.json());
 
 app.use("/api", routes);
