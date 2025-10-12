@@ -1,6 +1,6 @@
 import type {Animal} from '../types/animal';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/+$/, '');
 
 export const animalService = {
     async getAllAnimals(): Promise<Animal[]> {
