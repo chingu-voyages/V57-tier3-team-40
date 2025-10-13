@@ -1,6 +1,8 @@
 import type { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Animal } from "../types/animal";
+import genderMaleIcon from '../assets/icons/gender-male.svg';
+import genderFemaleIcon from '../assets/icons/gender-female.svg';
 
 interface AnimalCardProps {
   animal: Animal;
@@ -27,38 +29,26 @@ const AnimalCard: FC<AnimalCardProps> = ({ animal }) => {
           />
         </div>
       )}
-      <div className="p-4">
+      <div className="p-5">
         <div className="flex justify-between items-start mb-2">
-          <h3 className="text-xl font-semibold text-gray-800">{animal.name}</h3>
-          <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
-            {animal.gender}
+          <h3 className="text-xl font-semibold text-gray-800 mb-3">{animal.name}</h3>
+          <span>
+            {animal.gender === 'Male' ? 
+              <img src={genderMaleIcon} alt="male gender icon" className="w-[23px]" /> : 
+              <img src={genderFemaleIcon} alt="female gender icon" className="w-[24px] h-[23px]" />
+            }
           </span>
         </div>
 
-        <div className="space-y-2 text-sm text-gray-600">
+        <div className="text-sm font-semibold text-gray-600">
           <p>
-            <strong>Breed:</strong> {animal.breed}
+            Young {animal.breed}
           </p>
           <p>
-            <strong>Age:</strong> {animal.age}
+            1 mile away
           </p>
-          <p>
-            <strong>Location:</strong> {animal.city}, {animal.state}
-          </p>
-          <p>
-            <strong>House Trained:</strong> {animal.houseTrained}
-          </p>
-          <p>
-            <strong>Health:</strong> {animal.health}
-          </p>
-          <p>
-            <strong>Good With:</strong> {animal.goodWith}
-          </p>
-          {animal.meetPuppy && (
-            <p>
-              <strong>Meet & Greet:</strong> {animal.meetPuppy}
-            </p>
-          )}
+          
+          
         </div>
       </div>
     </div>
