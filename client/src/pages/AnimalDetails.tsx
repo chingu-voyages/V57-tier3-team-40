@@ -62,7 +62,7 @@ const AnimalDetails: FC = () => {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen mt-35">
       <div className="max-w-4xl mx-auto px-6 py-8">
         <div className="relative mb-8">
           {animal.image && (
