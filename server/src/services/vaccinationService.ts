@@ -29,7 +29,7 @@ export const vaccinationService = {
     if (!animal) throw new Error("Animal not found");
 
     const created = await prisma.vaccination.create({
-      data,
+      data: VaccinationMapper.dtoToPrisma(data),
     });
 
     return VaccinationMapper.prismaToPublic(created);

@@ -1,4 +1,4 @@
-import { VaccinationPublic } from "../types";
+import { VaccinationPublic, CreateVaccinationDto } from "../types";
 
 export const VaccinationMapper = {
   prismaToPublic(v: any): VaccinationPublic {
@@ -23,5 +23,15 @@ export const VaccinationMapper = {
     };
 
     return result;
+  },
+
+  dtoToPrisma(dto: CreateVaccinationDto) {
+    return {
+      ...dto,
+      vaccination_date: new Date(dto.vaccination_date),
+      expiration_date: dto.expiration_date
+        ? new Date(dto.expiration_date)
+        : null,
+    };
   },
 };
