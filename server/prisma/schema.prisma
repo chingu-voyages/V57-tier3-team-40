@@ -37,6 +37,7 @@ model Animal {
   created_at    DateTime      @default(now())
   updated_at    DateTime      @updatedAt
   vaccinations  Vaccination[]
+  medicalRecords MedicalRecord[]
 
   @@map("animals")
 }
@@ -53,6 +54,24 @@ model Vaccination {
   animal           Animal    @relation(fields: [animal_id], references: [id])
 
   @@map("vaccinations")
+
+}
+
+model MedicalRecord {
+  id            String   @id @default(cuid())
+  visit_date    DateTime
+  visit_type    String
+  diagnosis     String?
+  treatment     String?
+  medications   String?
+  note          String?
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+
+  animal_id     String
+  animal        Animal   @relation(fields: [animal_id], references: [id])
+
+  @@map("medical_records")
 }
 
 enum UserRole {
