@@ -62,14 +62,14 @@ const AnimalDetails: FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#FDF6EC]">
+    <div className="min-h-screen">
       <div className="max-w-4xl mx-auto px-6 py-8">
         <div className="relative mb-8">
           {animal.image && (
             <img
               src={animal.image}
               alt={animal.name}
-              className="w-full h-auto object-contain rounded-lg"
+              className="w-full h-auto object-cover rounded-lg"
               style={{ maxHeight: '600px' }}
             />
           )}
