@@ -72,7 +72,7 @@ export const PetCarousel: React.FC = () => {
                     <div className="flex items-center justify-between gap-30 mb-6">
                         <div className="hidden md:block flex-1"></div>
 
-                        <h2 className="text-xl md:text-xl lg:text-3xl font-medium text-[#104C35] text-center flex-1 md:flex-none">
+                        <h2 className="text-xl md:text-xl lg:text-4xl font-medium text-[#104C35] text-center flex-1 md:flex-none">
                             {getTitle()}
                         </h2>
 
