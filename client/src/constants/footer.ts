@@ -1,4 +1,4 @@
-import logo  from "../assets/header/logo.png"
+import logo  from "../assets/footer/footerLogo.png"
 import figmaIcon from '../assets/footer/figma.svg'
 import neonIcon from '../assets/footer/neon-logo.svg'
 

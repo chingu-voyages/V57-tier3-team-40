@@ -15,12 +15,12 @@ const Paragraph: React.FC<ParagraphProps> = ({
   color,
   weight = 'normal'
 }) => {
-  const baseClasses = 'text-gray-700';
+  const baseClasses = '';
   
   const sizeClasses = {
     small: 'text-sm lg:text-base',
     medium: 'text-base lg:text-lg',
-    large: 'lg:text-[1.25rem] xl:text-[1.5rem]'
+    large: 'lg:text-[1.15rem] xl:text-[1.25rem]'
   };
   
   const weightClasses = {

@@ -66,17 +66,17 @@ export const PetCarousel: React.FC = () => {
     };
 
     return (
-        <section className="py-12">
+        <section className="pb-12 mb-23 lg:mb-35 xl:mb-45">
             <div className="container mx-auto px-4">
                 <div className="mb-8">
-                    <div className="flex items-center justify-between gap-4 mb-6">
+                    <div className="flex items-center justify-between gap-30 mb-6">
                         <div className="hidden md:block flex-1"></div>
 
-                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-normal text-[#104C35] text-center flex-1 md:flex-none">
+                        <h2 className="text-xl md:text-xl lg:text-3xl font-medium text-[#104C35] text-center flex-1 md:flex-none">
                             {getTitle()}
                         </h2>
 
-                        <div className="hidden md:flex flex-1 justify-start gap-2">
+                        <div className="hidden md:flex flex-1 justify-start gap-3">
                             {state.animals.length > 1 && (
                                 <>
                                     <button

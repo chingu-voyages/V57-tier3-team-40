@@ -2,7 +2,7 @@ import adoptImg from "../assets/homepage/adoptHighlight.avif"
 
 const AdoptHighlight = () => {
     return (
-        <section className="w-full lg:flex lg:flex-row-reverse items-center mb-23 lg:mb-38 xl:mb-50">
+        <section className="max-w-[1440px] mx-auto lg:flex lg:flex-row-reverse items-center mb-23 lg:mb-35 xl:mb-45">
             <div className="px-8 mb-10 lg:mb-0 lg:w-[48%] lg:px-20 xl:px-28">
                 <h2 className="text-[1.75rem] lg:text-3xl xl:text-4xl text-[#104C35] font-semibold lg:font-medium text-center 
                 lg:text-left mb-5 xl:mb-8">

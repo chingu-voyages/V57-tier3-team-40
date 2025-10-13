@@ -8,8 +8,8 @@ const Footer = () => {
     
     return (
        <footer
-            className="w-full flex flex-col bg-white text-[#104C35] px-4 py-12 md:py-20 bg-cover bg-top
-            bg-[url('/footer/mobile-wm.png')] sm:bg-[url('/footer/tablet-wm.png')] md:bg-[url('/footer/desktop-wm.png')]">
+            className="w-full flex flex-col bg-[#DFFFEA] text-[#104C35] px-4 py-12 md:py-20 bg-cover bg-top
+            bg-[url('/footer/mobile.avif')] bg-[url('/footer/paws.avif')]">
             <div className="flex justify-center items-center mb-6 md:mb-10">
                 <img src={footLogo} className="h-18 md:h-22 w-auto" alt="little paws logo" />
             </div>

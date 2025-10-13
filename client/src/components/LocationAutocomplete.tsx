@@ -105,7 +105,7 @@ const LocationAutocomplete: FC<LocationAutocompleteProps> = ({ value, onChange }
         onChange={handleInputChange}
         onFocus={handleInputFocus}
         onKeyDown={handleKeyDown}
-        className="w-[262px] md:w-full h-[44px] md:h-auto pl-4 pr-10 md:py-2 border border-[1px] md:border-gray-700 rounded-[10px] md:rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 text-gray-700 placeholder-gray-400 bg-white text-[17px] md:text-base leading-[22px] md:leading-normal tracking-[-0.43px] md:tracking-normal"
+        className="w-[262px] md:w-full h-[44px] md:h-auto pl-4 md:py-2 bg-white border border-[#104C35]/60 rounded-[10px] md:rounded-lg focus:outline-none focus:ring-1 focus:ring-[#5FED83] focus:border-[#5FED83] focus:bg-[#5FED83]/15 text-[#104C35] placeholder-gray-400 focus:placeholder-green-600 text-[17px] md:text-base leading-[22px] md:leading-normal tracking-[-0.43px] md:tracking-normal"
         style={{
           fontFamily: 'SF Pro, sans-serif',
           fontWeight: 400,
