@@ -37,7 +37,7 @@ const Animals: FC = () => {
   return (
     <div className="flex flex-col w-full min-h-screen">
       <main className="flex-1 w-full">
-        <div className="container mx-auto px-6 py-8">
+        <div className="container mx-auto px-6 py-22">
           <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
             Our Animals
           </h2>
