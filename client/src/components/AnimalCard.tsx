@@ -35,7 +35,7 @@ const AnimalCard: FC<AnimalCardProps> = ({ animal }) => {
           <span>
             {animal.gender === 'Male' ? 
               <img src={genderMaleIcon} alt="male gender icon" className="w-[23px]" /> : 
-              <img src={genderFemaleIcon} alt="female gender icon" className="w-[24px] h-[23px]" />
+              <img src={genderFemaleIcon} alt="female gender icon"/>
             }
           </span>
         </div>
