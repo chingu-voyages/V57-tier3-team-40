@@ -29,7 +29,7 @@ const Button: React.FC<ButtonProps> = ({
   const sizeClasses = {
     small: 'px-4 py-2 text-sm',
     medium: 'px-6 py-3 text-base',
-    large: 'w-[474px] h-[98.6px] text-[2.7rem]'
+    large: 'w-[440px] h-[80px] text-[2.25rem]'
   };
 
   const combinedClasses = `

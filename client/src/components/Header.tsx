@@ -5,7 +5,7 @@ import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
 
 const Header: FC = () => {
   return (
-    <header className="bg-white">
+    <header>
       <div className="max-w-[1440px] w-full mx-auto flex justify-between items-center text-black px-12 py-6">
         <div>
           <NavLink to='/'>

@@ -10,7 +10,7 @@ const AdoptOrFoster = () => {
   };
 
   return (
-    <section className="max-w-[1440px] mx-auto lg:flex lg:flex-row items-center mb-23 lg:mb-38 xl:mb-50">
+    <section className="max-w-[1440px] mx-auto lg:flex lg:flex-row items-center mb-23 lg:mb-35 xl:mb-45">
       <div className="px-6 mb-10 lg:mb-0 lg:w-[48%] lg:px-20 xl:px-28">
         <SectionHeading 
           className="mb-5 xl:mb-8"

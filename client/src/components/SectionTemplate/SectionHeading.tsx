@@ -20,7 +20,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
   const sizeClasses = {
     small: 'text-2xl lg:text-3xl xl:text-4xl',
     medium: 'text-3xl lg:text-4xl xl:text-5xl',
-    large: 'text-3xl lg:text-4xl xl:text-5xl'
+    large: 'text-[1.75rem] lg:text-3xl xl:text-4xl'
   };
   
   const alignClasses = {
