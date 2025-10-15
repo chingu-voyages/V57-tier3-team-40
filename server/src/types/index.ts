@@ -6,6 +6,7 @@ export { User, UserPublic, UserSession } from "./types/user.types";
 
 export { AnimalPublic } from "./types/animal.types";
 export { VaccinationPublic } from "./types/vaccination.types";
+export { MedicalRecordPublic } from "./types/medicalRecord.types";
 
 export {
   UserCreateDTO,
@@ -28,3 +29,8 @@ export {
   CreateVaccinationDto,
   UpdateVaccinationDto,
 } from "./dto/vaccination.dto";
+
+export {
+  CreateMedicalRecordDto,
+  UpdateMedicalRecordDto,
+} from "./dto/medicalRecord.dto";
